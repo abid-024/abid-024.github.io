@@ -1439,3 +1439,26 @@ body.page-contact .contact-right-card {
     display: none !important;
   }
 }
+
+/* GLOBAL TEXT HIGHLIGHT - SAME ON ALL PAGES */
+::selection {
+  background: #96f0ff !important;
+  color: #101010 !important;
+}
+
+::-moz-selection {
+  background: #96f0ff !important;
+  color: #101010 !important;
+}
+
+html[data-theme="dark"] ::selection,
+body.dark ::selection {
+  background: #c7ff3d !important;
+  color: #101010 !important;
+}
+
+html[data-theme="dark"] ::-moz-selection,
+body.dark ::-moz-selection {
+  background: #c7ff3d !important;
+  color: #101010 !important;
+}

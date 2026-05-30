@@ -529,10 +529,20 @@ function setupSkillButtons() {
 }
 
 function setupSoftwareButtons() {
-  qsa("[data-software]").forEach((button) => {
+  const note = qs("[data-software-note]");
+  const buttons = qsa("[data-software]");
+
+  buttons.forEach((button) => {
     button.addEventListener("click", () => {
       const key = button.dataset.software;
-      showSiteToast(softwareCopy[key] || "Software slot selected.");
+      const text = softwareCopy[key] || "Software slot selected.";
+
+      buttons.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+
+      if (note) {
+        note.textContent = text;
+      }
     });
   });
 }

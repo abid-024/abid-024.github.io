@@ -1887,8 +1887,9 @@ body[data-time-mood="night"] .top-gradient::after {
 }
 
 .software-icons button.is-active .app-icon {
-  border-style: solid;
-  background: rgba(17, 17, 17, 0.08);
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .software-note {
@@ -15275,25 +15276,47 @@ body.page-web .web-dev-window .web-window-note.web-window-strip img {
   }
 }
 
-/* SOFTWARE SKILL ICON MAGNIFY EFFECT */
+/* SOFTWARE SKILL ICON CLEAN HOVER */
 .software-icons button {
   position: relative;
+  overflow: visible;
+  transition: none;
+}
+
+.software-icons button .app-icon {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  overflow: visible;
+}
+
+.software-icons button .app-icon img {
   transition:
     transform 180ms ease,
-    filter 180ms ease,
-    box-shadow 180ms ease;
+    filter 180ms ease;
+  transform-origin: center;
 }
 
 .software-icons button:hover,
 .software-icons button:focus-visible {
   z-index: 3;
-  transform: scale(1.22) translateY(-4px);
-  filter: saturate(1.15) contrast(1.04);
+  transform: none !important;
+  filter: none !important;
+  box-shadow: none !important;
 }
 
 .software-icons button:hover .app-icon,
-.software-icons button:focus-visible .app-icon {
-  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.14);
+.software-icons button:focus-visible .app-icon,
+.software-icons button.is-active .app-icon {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.software-icons button:hover .app-icon img,
+.software-icons button:focus-visible .app-icon img,
+.software-icons button.is-active .app-icon img {
+  transform: scale(1.16) translateY(-3px);
+  filter: saturate(1.15) contrast(1.04);
 }
 
 /* LANDING OPEN FOR SECTION - SIMPLE ANIMATION */

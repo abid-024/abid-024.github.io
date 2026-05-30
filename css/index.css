@@ -1507,31 +1507,6 @@ body[data-time-mood="night"] .top-gradient::after {
   padding: 0 58px;
 }
 
-.soft-link {
-  position: relative;
-  display: flex;
-  width: 130px;
-  height: 36px;
-  min-height: 36px;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  border-radius: 8px;
-  background: #e5a5e9;
-  color: #251f8f;
-  font-weight: 400;
-  letter-spacing: 0.32em;
-  text-decoration: underline;
-}
-
-.soft-link::before {
-  content: none;
-}
-
-.soft-link::after {
-  content: none;
-}
-
 .soft-link.is-empty {
   width: 137px;
   text-decoration: none;
@@ -1543,7 +1518,63 @@ body[data-time-mood="night"] .top-gradient::after {
 
 .soft-link.is-medium {
   width: 137px;
-  text-decoration: underline;
+  text-decoration: none;
+}
+
+.soft-link {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  width: 130px;
+  height: 36px;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border-radius: 8px;
+  background: #e5a5e9;
+  color: #251f8f;
+  font-weight: 400;
+  text-decoration: none !important;
+  white-space: nowrap;
+
+  box-shadow: none;
+}
+
+
+
+.soft-link-label {
+  position: relative;
+  display: inline-flex;
+  letter-spacing: 0.32em;
+  line-height: 1;
+  color: inherit;
+  text-decoration: none !important;
+
+  transition:
+    transform 180ms ease,
+    letter-spacing 180ms ease;
+}
+
+.soft-link-label::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+
+  width: 100%;
+  height: 1px;
+  border-radius: 999px;
+  background: currentColor;
+
+  transform: translateX(-50%) scaleX(0.72);
+  transform-origin: center;
+  transition:
+    width 180ms ease,
+    transform 180ms ease;
 }
 
 .social-icon {
@@ -1552,6 +1583,28 @@ body[data-time-mood="night"] .top-gradient::after {
   border: 0;
   border-radius: 4px;
   background: rgba(255, 255, 255, 0.65);
+
+  transition: transform 180ms ease;
+}
+
+
+
+.soft-link:hover .soft-link-label,
+.soft-link:focus-visible .soft-link-label {
+  transform: translateY(-3px);
+  letter-spacing: 0.4em;
+  color: #251f8f;
+}
+
+.soft-link:hover .soft-link-label::after,
+.soft-link:focus-visible .soft-link-label::after {
+  width: 120%;
+  transform: translateX(-50%) scaleX(1);
+}
+
+.soft-link:hover .social-icon,
+.soft-link:focus-visible .social-icon {
+  transform: translateY(-3px) rotate(-8deg) scale(1.12);
 }
 
 .section-divider {
@@ -8239,10 +8292,20 @@ blockquote {
   --service-nav-accent: #b78cff;
   --service-nav-accent-soft: rgba(183, 140, 255, 0.32);
   background:
-    radial-gradient(circle at 10% 14%, rgba(123, 99, 232, 0.16), transparent 30%),
-    radial-gradient(circle at 90% 16%, rgba(238, 123, 77, 0.12), transparent 26%),
-    linear-gradient(rgba(29, 20, 23, 0.034) 1px, transparent 1px) 0 0 / 100% 54px,
-    linear-gradient(90deg, rgba(29, 20, 23, 0.026) 1px, transparent 1px) 0 0 / 54px 54px,
+    radial-gradient(
+      circle at 10% 14%,
+      rgba(123, 99, 232, 0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 16%,
+      rgba(238, 123, 77, 0.12),
+      transparent 26%
+    ),
+    linear-gradient(rgba(29, 20, 23, 0.034) 1px, transparent 1px) 0 0 / 100%
+      54px,
+    linear-gradient(90deg, rgba(29, 20, 23, 0.026) 1px, transparent 1px) 0 0 /
+      54px 54px,
     #eadccc;
   color: var(--web-ink);
 }
@@ -8270,8 +8333,16 @@ blockquote {
 
 .page-uiux .web-dev-hero {
   background:
-    radial-gradient(circle at 84% 84%, rgba(123, 99, 232, 0.14), transparent 32%),
-    radial-gradient(circle at 16% 16%, rgba(238, 123, 77, 0.18), transparent 30%),
+    radial-gradient(
+      circle at 84% 84%,
+      rgba(123, 99, 232, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 16% 16%,
+      rgba(238, 123, 77, 0.18),
+      transparent 30%
+    ),
     linear-gradient(135deg, #f7efe6, #e9dccd);
 }
 
@@ -8288,7 +8359,8 @@ blockquote {
 .page-uiux .web-window-canvas {
   background:
     linear-gradient(rgba(29, 20, 23, 0.05) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(90deg, rgba(29, 20, 23, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(90deg, rgba(29, 20, 23, 0.04) 1px, transparent 1px) 0 0 /
+      40px 40px,
     #fbf4ec;
 }
 
@@ -8312,14 +8384,26 @@ blockquote {
 
 .page-uiux .service-price-preview .is-featured {
   background:
-    radial-gradient(circle at 86% 18%, rgba(123, 99, 232, 0.14), transparent 28%),
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(123, 99, 232, 0.14),
+      transparent 28%
+    ),
     linear-gradient(135deg, rgba(251, 242, 233, 0.8), rgba(234, 223, 255, 0.56));
 }
 
 .page-uiux .service-site-footer {
   background:
-    radial-gradient(circle at 86% 80%, rgba(123, 99, 232, 0.2), transparent 30%),
-    radial-gradient(circle at 18% 16%, rgba(238, 123, 77, 0.16), transparent 24%),
+    radial-gradient(
+      circle at 86% 80%,
+      rgba(123, 99, 232, 0.2),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 18% 16%,
+      rgba(238, 123, 77, 0.16),
+      transparent 24%
+    ),
     #171112;
 }
 
@@ -8422,15 +8506,31 @@ blockquote {
   display: grid;
   place-items: center;
   background:
-    radial-gradient(circle at 88% 18%, rgba(238, 123, 77, 0.12), transparent 28%),
-    radial-gradient(circle at 18% 84%, rgba(123, 99, 232, 0.12), transparent 30%),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(238, 123, 77, 0.12),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 18% 84%,
+      rgba(123, 99, 232, 0.12),
+      transparent 30%
+    ),
     rgba(251, 242, 233, 0.54);
 }
 
 .topic-faq-uiux .topic-faq-hero {
   background:
-    radial-gradient(circle at 86% 18%, rgba(123, 99, 232, 0.22), transparent 28%),
-    radial-gradient(circle at 18% 84%, rgba(238, 123, 77, 0.16), transparent 30%),
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(123, 99, 232, 0.22),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 18% 84%,
+      rgba(238, 123, 77, 0.16),
+      transparent 30%
+    ),
     linear-gradient(
       135deg,
       rgba(255, 248, 240, 0.74),
@@ -8440,17 +8540,35 @@ blockquote {
 
 :root[data-theme="dark"] .page-uiux {
   background:
-    radial-gradient(circle at 10% 14%, rgba(155, 124, 246, 0.14), transparent 30%),
-    radial-gradient(circle at 90% 16%, rgba(255, 138, 96, 0.1), transparent 26%),
-    linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 100% 54px,
-    linear-gradient(90deg, rgba(245, 243, 229, 0.03) 1px, transparent 1px) 0 0 / 54px 54px,
+    radial-gradient(
+      circle at 10% 14%,
+      rgba(155, 124, 246, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 16%,
+      rgba(255, 138, 96, 0.1),
+      transparent 26%
+    ),
+    linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 100%
+      54px,
+    linear-gradient(90deg, rgba(245, 243, 229, 0.03) 1px, transparent 1px) 0 0 /
+      54px 54px,
     #151018;
 }
 
 :root[data-theme="dark"] .page-uiux .web-dev-hero {
   background:
-    radial-gradient(circle at 84% 84%, rgba(155, 124, 246, 0.12), transparent 32%),
-    radial-gradient(circle at 16% 16%, rgba(255, 138, 96, 0.14), transparent 30%),
+    radial-gradient(
+      circle at 84% 84%,
+      rgba(155, 124, 246, 0.12),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 16% 16%,
+      rgba(255, 138, 96, 0.14),
+      transparent 30%
+    ),
     linear-gradient(135deg, rgba(29, 20, 23, 0.96), rgba(46, 30, 35, 0.92));
 }
 
@@ -8463,8 +8581,10 @@ blockquote {
 
 :root[data-theme="dark"] .page-uiux .web-window-canvas {
   background:
-    linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
-    linear-gradient(90deg, rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 40px 40px,
+    linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 40px
+      40px,
+    linear-gradient(90deg, rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 /
+      40px 40px,
     #20181c;
 }
 
@@ -10329,12 +10449,12 @@ blockquote {
 
 /* Final shared polish: themes, navigation, return controls, stacked main-page panels, and service footer */
 ::selection {
-  background: #96F0FF;
+  background: #96f0ff;
   color: #101010;
 }
 
 :root[data-theme="dark"] ::selection {
-  background: #C7FF3D;
+  background: #c7ff3d;
   color: #101010;
 }
 
@@ -11718,7 +11838,7 @@ main#home > .about-section {
   --project-line: rgba(248, 241, 222, 0.28);
   --project-hard-line: rgba(248, 241, 222, 0.72);
   --project-cyan: #60d8ff;
-  --project-lime: #C7FF3D;
+  --project-lime: #c7ff3d;
   --project-pink: #ff74cf;
   --project-violet: #8b6cff;
   --project-orange: #ffb45c;
@@ -13389,12 +13509,12 @@ main#home > .about-section {
 
 /* End-of-file overrides so the shared polish wins over page-specific blocks. */
 ::selection {
-  background: #96F0FF;
+  background: #96f0ff;
   color: #101010;
 }
 
 :root[data-theme="dark"] ::selection {
-  background: #C7FF3D;
+  background: #c7ff3d;
   color: #101010;
 }
 
@@ -17464,11 +17584,7 @@ body.vault-page-popup-open {
 }
 
 .service-hub-card:nth-child(5)::before {
-  background: radial-gradient(
-    circle,
-    rgba(69, 96, 245, 0.16),
-    transparent 64%
-  );
+  background: radial-gradient(circle, rgba(69, 96, 245, 0.16), transparent 64%);
 }
 
 .service-hub-card:hover {
@@ -19012,12 +19128,21 @@ body.vault-page-popup-open {
     border: 1.5px solid rgba(17, 17, 17, 0.14) !important;
     border-radius: 30px !important;
     background:
-      linear-gradient(rgba(255, 255, 255, 0.24) 1px, transparent 1px) 0 0 /
-        28px 28px,
+      linear-gradient(rgba(255, 255, 255, 0.24) 1px, transparent 1px) 0 0 / 28px
+        28px,
       linear-gradient(90deg, rgba(255, 255, 255, 0.24) 1px, transparent 1px) 0
         0 / 28px 28px,
-      radial-gradient(circle at 78% 16%, rgba(255, 255, 255, 0.76), transparent 18%),
-      linear-gradient(135deg, rgba(141, 245, 181, 0.28), rgba(118, 189, 255, 0.16) 52%, rgba(229, 165, 233, 0.2)) !important;
+      radial-gradient(
+        circle at 78% 16%,
+        rgba(255, 255, 255, 0.76),
+        transparent 18%
+      ),
+      linear-gradient(
+        135deg,
+        rgba(141, 245, 181, 0.28),
+        rgba(118, 189, 255, 0.16) 52%,
+        rgba(229, 165, 233, 0.2)
+      ) !important;
     box-shadow:
       -18px 22px 0 rgba(141, 245, 181, 0.18),
       0 24px 54px rgba(17, 17, 17, 0.12) !important;
@@ -19151,7 +19276,11 @@ body.vault-page-popup-open {
         34px,
       linear-gradient(90deg, rgba(17, 17, 17, 0.042) 1px, transparent 1px) 0 0 /
         34px 34px,
-      radial-gradient(circle at 86% 22%, rgba(229, 165, 233, 0.3), transparent 28%),
+      radial-gradient(
+        circle at 86% 22%,
+        rgba(229, 165, 233, 0.3),
+        transparent 28%
+      ),
       linear-gradient(145deg, #fff9ed, rgba(141, 245, 181, 0.16));
     box-shadow:
       0 22px 58px rgba(17, 17, 17, 0.1),
@@ -19203,11 +19332,15 @@ body.vault-page-popup-open {
   :root[data-theme="dark"] .page-services .service-hub-mini-hero {
     border-color: rgba(245, 243, 229, 0.14);
     background:
-      linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 /
-        34px 34px,
+      linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 34px
+        34px,
       linear-gradient(90deg, rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0
         0 / 34px 34px,
-      radial-gradient(circle at 86% 22%, rgba(229, 165, 233, 0.15), transparent 28%),
+      radial-gradient(
+        circle at 86% 22%,
+        rgba(229, 165, 233, 0.15),
+        transparent 28%
+      ),
       linear-gradient(145deg, #151515, rgba(141, 245, 181, 0.07));
     box-shadow:
       0 22px 58px rgba(0, 0, 0, 0.3),
@@ -19430,7 +19563,11 @@ body.vault-page-popup-open {
         34px,
       linear-gradient(90deg, rgba(17, 17, 17, 0.045) 1px, transparent 1px) 0 0 /
         34px 34px,
-      radial-gradient(circle at 88% 20%, rgba(229, 165, 233, 0.32), transparent 28%),
+      radial-gradient(
+        circle at 88% 20%,
+        rgba(229, 165, 233, 0.32),
+        transparent 28%
+      ),
       linear-gradient(145deg, #fbf6e8, rgba(141, 245, 181, 0.16));
     box-shadow:
       0 22px 58px rgba(17, 17, 17, 0.1),
@@ -19447,8 +19584,8 @@ body.vault-page-popup-open {
     border: 1.5px solid rgba(17, 17, 17, 0.12);
     border-radius: 28px;
     background:
-      linear-gradient(90deg, rgba(17, 17, 17, 0.1), transparent 32px) 0 0 /
-        100% 42px,
+      linear-gradient(90deg, rgba(17, 17, 17, 0.1), transparent 32px) 0 0 / 100%
+        42px,
       rgba(255, 255, 255, 0.4);
     box-shadow: -24px 28px 0 rgba(141, 245, 181, 0.18);
     content: "";
@@ -19465,7 +19602,11 @@ body.vault-page-popup-open {
     overflow: hidden;
     background:
       linear-gradient(145deg, rgba(125, 162, 255, 0.18), transparent 34%),
-      radial-gradient(circle at 92% 16%, rgba(246, 205, 110, 0.16), transparent 28%),
+      radial-gradient(
+        circle at 92% 16%,
+        rgba(246, 205, 110, 0.16),
+        transparent 28%
+      ),
       var(--contact-card);
   }
 
@@ -19478,8 +19619,8 @@ body.vault-page-popup-open {
     border: 1px solid var(--contact-line);
     border-radius: 34px;
     background:
-      linear-gradient(rgba(245, 243, 229, 0.09) 1px, transparent 1px) 0 0 /
-        26px 26px,
+      linear-gradient(rgba(245, 243, 229, 0.09) 1px, transparent 1px) 0 0 / 26px
+        26px,
       linear-gradient(90deg, rgba(245, 243, 229, 0.09) 1px, transparent 1px) 0
         0 / 26px 26px,
       rgba(125, 162, 255, 0.12);
@@ -19495,11 +19636,15 @@ body.vault-page-popup-open {
   :root[data-theme="dark"] .page-vault .vault-hero {
     border-color: rgba(245, 243, 229, 0.14);
     background:
-      linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 /
-        34px 34px,
-      linear-gradient(90deg, rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 /
-        34px 34px,
-      radial-gradient(circle at 88% 20%, rgba(229, 165, 233, 0.14), transparent 28%),
+      linear-gradient(rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0 0 / 34px
+        34px,
+      linear-gradient(90deg, rgba(245, 243, 229, 0.04) 1px, transparent 1px) 0
+        0 / 34px 34px,
+      radial-gradient(
+        circle at 88% 20%,
+        rgba(229, 165, 233, 0.14),
+        transparent 28%
+      ),
       linear-gradient(145deg, #151515, rgba(141, 245, 181, 0.07));
     box-shadow:
       0 22px 58px rgba(0, 0, 0, 0.28),
@@ -19772,8 +19917,8 @@ body.vault-page-popup-open {
     border: 1px solid var(--contact-line);
     border-radius: 34px;
     background:
-      linear-gradient(rgba(245, 243, 229, 0.12) 1px, transparent 1px) 0 0 /
-        22px 22px,
+      linear-gradient(rgba(245, 243, 229, 0.12) 1px, transparent 1px) 0 0 / 22px
+        22px,
       linear-gradient(90deg, rgba(245, 243, 229, 0.12) 1px, transparent 1px) 0
         0 / 22px 22px,
       rgba(125, 162, 255, 0.14);
@@ -19955,7 +20100,10 @@ html[data-theme="dark"] {
   opacity: 0;
   pointer-events: none;
   transform: translateY(12px);
-  transition: opacity 180ms ease, transform 180ms ease, background 180ms ease;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    background 180ms ease;
 }
 
 .back-top.is-visible {
@@ -20023,7 +20171,6 @@ html[data-theme="dark"] .back-top {
   }
 }
 
-
 /* FINAL INDEX PATCH: speed, cursor, protection, no popup. */
 .reveal-item,
 .reveal-item.is-revealed {
@@ -20032,7 +20179,9 @@ html[data-theme="dark"] .back-top {
   transition-duration: 0ms !important;
   transition-delay: 0ms !important;
 }
-.lab-toast { display: none !important; }
+.lab-toast {
+  display: none !important;
+}
 img,
 [data-protected-photo],
 .intro-photo-frame,
@@ -20042,38 +20191,110 @@ img,
   user-select: none !important;
   -webkit-user-drag: none !important;
 }
-.site-nav > nav { justify-content: center !important; }
+.site-nav > nav {
+  justify-content: center !important;
+}
 .back-top {
   width: 54px !important;
   height: 54px !important;
-  font-size: .9rem !important;
+  font-size: 0.9rem !important;
 }
 @media (max-width: 680px) {
-  .site-nav-brand { display: none !important; }
-  .site-nav > nav { justify-content: flex-start !important; overflow-x: auto !important; scrollbar-width: none; }
-  .site-nav > nav::-webkit-scrollbar { display: none; }
+  .site-nav-brand {
+    display: none !important;
+  }
+  .site-nav > nav {
+    justify-content: flex-start !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+  }
+  .site-nav > nav::-webkit-scrollbar {
+    display: none;
+  }
 }
-
 
 /* CORRECT_ZIP_PATCH: index fast load + protected blur + fixed original theme nav sizing */
 .reveal-item,
-.reveal-item.is-revealed { opacity: 1 !important; transform: none !important; transition-duration: 0ms !important; transition-delay: 0ms !important; }
-.lab-toast { display: none !important; }
-.is-protected-blur { animation: protected-blur 900ms ease both !important; }
-@keyframes protected-blur { 0%,100%{filter:blur(0)} 45%{filter:blur(8px) saturate(.72)} }
-.site-nav > nav { justify-content: center !important; }
-.site-nav .nav-theme-toggle { width:46px !important; height:46px !important; min-width:46px !important; }
-
+.reveal-item.is-revealed {
+  opacity: 1 !important;
+  transform: none !important;
+  transition-duration: 0ms !important;
+  transition-delay: 0ms !important;
+}
+.lab-toast {
+  display: none !important;
+}
+.is-protected-blur {
+  animation: protected-blur 900ms ease both !important;
+}
+@keyframes protected-blur {
+  0%,
+  100% {
+    filter: blur(0);
+  }
+  45% {
+    filter: blur(8px) saturate(0.72);
+  }
+}
+.site-nav > nav {
+  justify-content: center !important;
+}
+.site-nav .nav-theme-toggle {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+}
 
 /* FINAL image protection blur restored */
-img, [data-protected-photo], .intro-photo-frame, .portrait-frame, .quote-photo-frame { -webkit-user-select:none !important; user-select:none !important; -webkit-user-drag:none !important; }
-.is-protected-blur { animation: protectedBlur 900ms ease both !important; }
-@keyframes protectedBlur { 0% { filter:none; transform:scale(1); } 35% { filter:blur(7px) saturate(.72); transform:scale(.985); } 100% { filter:none; transform:scale(1); } }
-
-
-
+img,
+[data-protected-photo],
+.intro-photo-frame,
+.portrait-frame,
+.quote-photo-frame {
+  -webkit-user-select: none !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+}
+.is-protected-blur {
+  animation: protectedBlur 900ms ease both !important;
+}
+@keyframes protectedBlur {
+  0% {
+    filter: none;
+    transform: scale(1);
+  }
+  35% {
+    filter: blur(7px) saturate(0.72);
+    transform: scale(0.985);
+  }
+  100% {
+    filter: none;
+    transform: scale(1);
+  }
+}
 
 /* REMOVE EXTRA SMALL CURSOR ON INDEX */
 body.page-home .fs-cursor {
   display: none !important;
+}
+
+/* INDEX PHONE TOP GRADIENT SIZE FIX */
+@media (max-width: 980px) {
+  .page-home {
+    --hero-gradient-height: 82px !important;
+  }
+
+  .page-home .top-gradient {
+    margin-bottom: 22px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .page-home {
+    --hero-gradient-height: 68px !important;
+  }
+
+  .page-home .top-gradient {
+    margin-bottom: 18px !important;
+  }
 }

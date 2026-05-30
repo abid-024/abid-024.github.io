@@ -7,7 +7,7 @@ const projects = [
     status: "Live",
     year: "2026",
     image:
-      "assets/images/portfolio_detail_page_images_all_6/01_portfolio_hero_featured_16x9.png",
+      "assets/images/f1.png",
     link: "feature-project/web-dev-project.html",
     description:
       "A responsive portfolio build with a strong hero, clean service flow, project proof, and mobile-friendly structure.",
@@ -21,7 +21,7 @@ const projects = [
     status: "Ready",
     year: "2026",
     image:
-      "assets/images/automation_detail_page_images_all_6/01_automation_hero_featured_16x9.png",
+      "assets/images/f2.png",
     link: "feature-project/automation-project.html",
     description:
       "A simple automation system for collecting requests, checking details, routing leads, and sending the right next step.",
@@ -35,7 +35,7 @@ const projects = [
     status: "Ready",
     year: "2026",
     image:
-      "assets/images/local_seo_detail_page_images_all_6/01_local_seo_hero_featured_16x9.png",
+      "assets/images/f3.png",
     link: "feature-project/gmb-project.html",
     description:
       "A Google Business Profile and local visibility project focused on maps presence, trust signals, and clean business info.",
@@ -48,7 +48,7 @@ const projects = [
     type: "UI",
     status: "Concept",
     year: "2026",
-    image: "assets/images/ui1.png",
+    image: "assets/images/f4.png",
     link: "feature-project/ui-ux-project.html",
     description:
       "A clean interface direction with stronger spacing, reusable components, mobile layout thinking, and clearer user flow.",
@@ -62,7 +62,7 @@ const projects = [
     status: "Built",
     year: "2026",
     image:
-      "assets/images/code_feeling_detail_page_images_all_6/01_code_feeling_hero_featured_16x9.png",
+      "assets/images/f5.png",
     link: "feature-project/others-project.html",
     description:
       "A flexible showcase for mixed experiments, small tools, creative concepts, and design work that lives outside one service box.",
@@ -76,7 +76,7 @@ const projects = [
     status: "Locked",
     year: "2026",
     image:
-      "assets/images/security_detail_page_images_all_6/01_security_hero_featured_16x9.png",
+      "assets/images/f6.png",
     link: "feature-project/secret-project.html",
     description:
       "A hidden experimental project area for surprise ideas, protected concepts, playful interactions, and mystery-style portfolio work.",

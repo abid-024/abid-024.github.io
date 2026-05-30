@@ -1583,3 +1583,10 @@ html[data-theme="dark"] .project-vault-page .next-btn {
 .project-vault-page .vault-brandline {
   padding-right: 72px !important;
 }
+
+
+
+/* REMOVE MOVING ORBIT BEAM */
+.focus-beam {
+  display: none !important;
+}

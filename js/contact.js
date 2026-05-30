@@ -4,50 +4,9 @@
 ================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
-  setupContactTheme();
   setupContactClock();
   setupContactCopy();
 });
-
-function setupContactTheme() {
-  const root = document.documentElement;
-  const toggle = document.querySelector("[data-theme-toggle]");
-  const key = "siteTheme";
-
-  let savedTheme = "light";
-
-  try {
-    savedTheme = localStorage.getItem(key) || "light";
-  } catch (error) {
-    savedTheme = "light";
-  }
-
-  if (savedTheme !== "light" && savedTheme !== "dark") {
-    savedTheme = "light";
-  }
-
-  root.setAttribute("data-theme", savedTheme);
-  syncToggle(savedTheme);
-
-  toggle?.addEventListener("click", () => {
-    const current = root.getAttribute("data-theme") || "light";
-    const next = current === "dark" ? "light" : "dark";
-
-    root.setAttribute("data-theme", next);
-    syncToggle(next);
-
-    try {
-      localStorage.setItem(key, next);
-    } catch (error) {
-      // keep visible theme even if storage is blocked
-    }
-  });
-
-  function syncToggle(theme) {
-    if (!toggle) return;
-    toggle.setAttribute("aria-pressed", String(theme === "dark"));
-  }
-}
 
 function setupContactClock() {
   const timeCard = document.querySelector("[data-contact-time-card]");

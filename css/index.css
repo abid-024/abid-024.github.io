@@ -20069,3 +20069,11 @@ img,
 img, [data-protected-photo], .intro-photo-frame, .portrait-frame, .quote-photo-frame { -webkit-user-select:none !important; user-select:none !important; -webkit-user-drag:none !important; }
 .is-protected-blur { animation: protectedBlur 900ms ease both !important; }
 @keyframes protectedBlur { 0% { filter:none; transform:scale(1); } 35% { filter:blur(7px) saturate(.72); transform:scale(.985); } 100% { filter:none; transform:scale(1); } }
+
+
+
+
+/* REMOVE EXTRA SMALL CURSOR ON INDEX */
+body.page-home .fs-cursor {
+  display: none !important;
+}

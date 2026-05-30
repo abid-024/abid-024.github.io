@@ -853,36 +853,3 @@ if (document.readyState === "loading") {
   });
   document.querySelectorAll("img").forEach((img) => img.setAttribute("draggable", "false"));
 })();
-
-
-/* FlowSync round cursor */
-(() => {
-  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
-  function ready(fn){ if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn); else fn(); }
-  ready(() => {
-    if (document.querySelector('.fs-cursor')) return;
-    const cursor = document.createElement('div');
-    cursor.className = 'fs-cursor';
-    document.body.appendChild(cursor);
-    let x = -80, y = -80, tx = -80, ty = -80;
-    let raf = null;
-    function draw(){
-      x += (tx - x) * 0.28;
-      y += (ty - y) * 0.28;
-      cursor.style.transform = `translate3d(${x - 17}px, ${y - 17}px, 0)`;
-      raf = requestAnimationFrame(draw);
-    }
-    document.addEventListener('pointermove', (e) => {
-      tx = e.clientX; ty = e.clientY;
-      cursor.classList.add('is-visible');
-      if (!raf) draw();
-    }, { passive: true });
-    document.addEventListener('pointerleave', () => cursor.classList.remove('is-visible'));
-    document.addEventListener('pointerover', (e) => {
-      if (e.target.closest('a, button, input, textarea, select, [role="button"]')) cursor.classList.add('is-active');
-    });
-    document.addEventListener('pointerout', (e) => {
-      if (e.target.closest('a, button, input, textarea, select, [role="button"]')) cursor.classList.remove('is-active');
-    });
-  });
-})();

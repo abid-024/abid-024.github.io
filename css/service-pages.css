@@ -10560,8 +10560,8 @@ html[data-theme="dark"] .feature-photo-frame img {
 
 }
 @media (max-width: 680px){
-body {
-    padding-top: 102px;
+body.service-detail-page {
+    padding-top: 0 !important;
   }
 .page {
     width: calc(100% - 24px);
@@ -11308,3 +11308,206 @@ body.local-seo-body .local-seo-hero {
 
 
 
+/* PHONE SERVICE PAGE GAP CONTROL */
+@media (max-width: 680px) {
+  body.service-detail-page {
+    padding-top: 0 !important;
+  }
+
+  .automation-service-nav,
+  .web-dev-nav,
+  .local-seo-nav,
+  .cyber-nav,
+  .uiux-service-nav {
+    margin-top: 8px !important;      /* control top gap */
+    margin-bottom: 12px !important;  /* control nav to hero gap */
+  }
+
+  .automation-service-shell,
+  .web-dev-shell,
+  .local-seo-shell,
+  .cyber-shell,
+  .uiux-service-shell {
+    margin-top: 0 !important;
+  }
+}
+
+
+/* FINAL UI/UX NAV FIX - make UI/UX nav same as other service pages */
+
+body.service-detail-page {
+  padding-top: 0 !important;
+}
+
+body.page-uiux .uiux-service-nav {
+  position: sticky !important;
+  top: 14px !important;
+  z-index: 100 !important;
+  width: min(1168px, calc(100% - 32px)) !important;
+  min-height: 64px !important;
+  margin: 14px auto 28px !important;
+  padding: 9px 12px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 16px !important;
+
+  border: 1.5px solid #17121f !important;
+  border-radius: 14px !important;
+  background: rgba(255, 250, 239, 0.86) !important;
+  color: #17121f !important;
+  box-shadow: 0 14px 34px rgba(15, 18, 20, 0.1) !important;
+  overflow: visible !important;
+}
+
+body.page-uiux .uiux-brand {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  min-width: max-content !important;
+  flex: 0 0 auto !important;
+}
+
+body.page-uiux .uiux-brand img {
+  width: 42px !important;
+  height: 42px !important;
+  border: 1.25px solid #17121f !important;
+  border-radius: 12px !important;
+  object-fit: contain !important;
+  padding: 5px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body.page-uiux .uiux-brand span {
+  display: grid !important;
+  line-height: 1.04 !important;
+}
+
+body.page-uiux .uiux-brand strong {
+  font-size: 1.05rem !important;
+  font-weight: 900 !important;
+}
+
+body.page-uiux .uiux-brand small {
+  color: inherit !important;
+  opacity: 0.75 !important;
+  font-size: 0.74rem !important;
+  font-weight: 760 !important;
+}
+
+body.page-uiux .uiux-service-nav nav {
+  width: auto !important;
+  margin-left: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: clamp(18px, 3vw, 38px) !important;
+  overflow: visible !important;
+  white-space: nowrap !important;
+}
+
+body.page-uiux .uiux-service-nav nav a {
+  position: relative !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  min-height: 40px !important;
+  padding: 0 !important;
+  color: inherit !important;
+  background: transparent !important;
+  border: 0 !important;
+  font-size: 1rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}
+
+body.page-uiux .uiux-service-nav .page-theme-toggle {
+  position: static !important;
+  inset: auto !important;
+  flex: 0 0 36px !important;
+  width: 36px !important;
+  height: 36px !important;
+  min-width: 36px !important;
+  min-height: 36px !important;
+  margin: 0 0 0 8px !important;
+  display: grid !important;
+  place-items: center !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 999px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: 6px 6px 0 rgba(23, 18, 31, 0.08) !important;
+}
+
+body.page-uiux .uiux-service-nav .theme-toggle-icon {
+  width: 16px !important;
+  height: 16px !important;
+  border-width: 2px !important;
+}
+
+/* dark mode */
+html[data-theme="dark"] body.page-uiux .uiux-service-nav {
+  background: rgba(28, 21, 45, 0.92) !important;
+  color: #fff3df !important;
+  border-color: rgba(255, 243, 223, 0.72) !important;
+}
+
+html[data-theme="dark"] body.page-uiux .uiux-brand img {
+  border-color: rgba(255, 243, 223, 0.5) !important;
+}
+
+/* phone view */
+@media (max-width: 900px) {
+  body.page-uiux .uiux-service-nav {
+    width: calc(100% - 20px) !important;
+    min-height: 58px !important;
+    margin: 10px auto 16px !important;
+    padding: 9px 10px !important;
+    gap: 10px !important;
+  }
+
+  body.page-uiux .uiux-brand {
+    display: none !important;
+  }
+
+  body.page-uiux .uiux-service-nav nav {
+    width: auto !important;
+    max-width: calc(100% - 48px) !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    justify-content: flex-start !important;
+    gap: clamp(18px, 5.5vw, 32px) !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scrollbar-width: none !important;
+  }
+
+  body.page-uiux .uiux-service-nav nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  body.page-uiux .uiux-service-nav nav a {
+    min-height: 38px !important;
+    font-size: clamp(0.88rem, 3.4vw, 1rem) !important;
+  }
+
+  body.page-uiux .uiux-service-nav .page-theme-toggle {
+    flex-basis: 34px !important;
+    width: 34px !important;
+    height: 34px !important;
+    min-width: 34px !important;
+    min-height: 34px !important;
+    margin-left: 8px !important;
+  }
+
+  body.page-uiux .uiux-service-shell {
+    width: calc(100% - 20px) !important;
+    margin-top: 0 !important;
+  }
+
+  body.page-uiux .landing {
+    padding-top: 22px !important;
+  }
+}

@@ -966,3 +966,24 @@ body.dark .nav-wrap .nav { background: var(--fs-nav-bg-dark) !important; }
   .nav-wrap .back-link { justify-self: start !important; margin-right: 0 !important; }
   .nav-wrap .theme-toggle { justify-self: end !important; }
 }
+
+
+
+
+/* CONTACT PAGE CARD ALIGNMENT FIX */
+body.contact-page .contact-shell,
+body.page-contact .contact-shell {
+  align-items: start !important;
+  padding-top: 0 !important;
+  margin-top: 28px !important;
+}
+
+body.contact-page .contact-left-card,
+body.contact-page .contact-right-card,
+body.page-contact .contact-left-card,
+body.page-contact .contact-right-card {
+  align-self: start !important;
+  margin-top: 0 !important;
+  transform: none !important;
+  top: auto !important;
+}

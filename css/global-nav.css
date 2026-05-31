@@ -1568,3 +1568,263 @@ body.dark .theme-icon::before {
     ) !important;
   }
 }
+
+
+
+/* FINAL SAME TOGGLE EVERYWHERE - BORDERLESS SUN / MOON */
+:root {
+  --same-toggle-size: 28px;
+  --same-toggle-icon-size: 13px;
+  --same-toggle-cut: var(--fs-nav-bg);
+}
+
+html[data-theme="dark"],
+body.dark {
+  --same-toggle-cut: var(--fs-nav-bg-dark);
+}
+
+/* button body */
+.site-nav .theme-toggle,
+.site-nav [data-theme-toggle],
+.automation-service-nav .theme-toggle,
+.web-dev-nav .theme-toggle,
+.local-seo-nav .theme-toggle,
+.cyber-nav .theme-toggle,
+.uiux-service-nav .theme-toggle,
+.service-hub-nav .theme-toggle,
+.blog-nav .theme-toggle,
+.blog-nav .blog-theme-toggle,
+.contact-nav .theme-toggle,
+.contact-theme-toggle,
+.project-page-nav .theme-toggle,
+.vault-project-nav .theme-toggle,
+.pricing-nav .theme-toggle,
+.pricing-theme-toggle,
+.page-theme-toggle,
+.project-theme-toggle,
+.uiux-theme-toggle,
+.blog-detail-nav .theme-toggle,
+.nav-wrap .theme-toggle,
+[data-theme-toggle],
+#themeToggle {
+  position: relative !important;
+
+  width: var(--same-toggle-size) !important;
+  height: var(--same-toggle-size) !important;
+  min-width: var(--same-toggle-size) !important;
+  min-height: var(--same-toggle-size) !important;
+  flex: 0 0 var(--same-toggle-size) !important;
+
+  display: grid !important;
+  place-items: center !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+  border-radius: 999px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit !important;
+
+  padding: 0 !important;
+  margin: 0 !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+
+  transition:
+    transform 180ms ease,
+    filter 180ms ease !important;
+}
+
+/* simple white glow hover */
+.site-nav .theme-toggle:hover,
+.site-nav [data-theme-toggle]:hover,
+.automation-service-nav .theme-toggle:hover,
+.web-dev-nav .theme-toggle:hover,
+.local-seo-nav .theme-toggle:hover,
+.cyber-nav .theme-toggle:hover,
+.uiux-service-nav .theme-toggle:hover,
+.service-hub-nav .theme-toggle:hover,
+.blog-nav .theme-toggle:hover,
+.blog-nav .blog-theme-toggle:hover,
+.contact-nav .theme-toggle:hover,
+.contact-theme-toggle:hover,
+.project-page-nav .theme-toggle:hover,
+.vault-project-nav .theme-toggle:hover,
+.pricing-nav .theme-toggle:hover,
+.pricing-theme-toggle:hover,
+.page-theme-toggle:hover,
+.project-theme-toggle:hover,
+.uiux-theme-toggle:hover,
+.blog-detail-nav .theme-toggle:hover,
+.nav-wrap .theme-toggle:hover,
+[data-theme-toggle]:hover,
+#themeToggle:hover {
+  transform: translateY(-1px) scale(1.08) !important;
+  filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.9)) !important;
+}
+
+/* icon base */
+.theme-toggle .theme-toggle-icon,
+.contact-theme-toggle .theme-toggle-icon,
+.pricing-theme-toggle .theme-toggle-icon,
+.blog-theme-toggle .theme-toggle-icon,
+.page-theme-toggle .theme-toggle-icon,
+.project-theme-toggle .theme-toggle-icon,
+.uiux-theme-toggle .theme-toggle-icon,
+.blog-detail-nav .theme-toggle-icon,
+[data-theme-toggle] .theme-toggle-icon,
+.theme-icon {
+  position: relative !important;
+  z-index: 1 !important;
+
+  display: block !important;
+  width: var(--same-toggle-icon-size) !important;
+  height: var(--same-toggle-icon-size) !important;
+
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: currentColor !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+
+  transform: rotate(0deg) scale(1) !important;
+
+  transition:
+    transform 220ms ease,
+    width 180ms ease,
+    height 180ms ease,
+    background 180ms ease !important;
+}
+
+/* sun rays */
+.theme-toggle .theme-toggle-icon::before,
+.contact-theme-toggle .theme-toggle-icon::before,
+.pricing-theme-toggle .theme-toggle-icon::before,
+.blog-theme-toggle .theme-toggle-icon::before,
+.page-theme-toggle .theme-toggle-icon::before,
+.project-theme-toggle .theme-toggle-icon::before,
+.uiux-theme-toggle .theme-toggle-icon::before,
+.blog-detail-nav .theme-toggle-icon::before,
+[data-theme-toggle] .theme-toggle-icon::before,
+.theme-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -8px !important;
+  border-radius: 999px !important;
+
+  background: repeating-conic-gradient(
+    currentColor 0deg 10deg,
+    transparent 10deg 45deg
+  ) !important;
+
+  -webkit-mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+
+  mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+
+  opacity: 1 !important;
+  transform: rotate(0deg) scale(1) !important;
+
+  transition:
+    opacity 180ms ease,
+    transform 220ms ease !important;
+}
+
+/* remove old half-circle/pseudo styles from other pages */
+.theme-toggle .theme-toggle-icon::after,
+.contact-theme-toggle .theme-toggle-icon::after,
+.pricing-theme-toggle .theme-toggle-icon::after,
+.blog-theme-toggle .theme-toggle-icon::after,
+.page-theme-toggle .theme-toggle-icon::after,
+.project-theme-toggle .theme-toggle-icon::after,
+.uiux-theme-toggle .theme-toggle-icon::after,
+.blog-detail-nav .theme-toggle-icon::after,
+[data-theme-toggle] .theme-toggle-icon::after,
+.theme-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  display: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 999px !important;
+  background: var(--same-toggle-cut) !important;
+  transform: translate(36%, -28%) !important;
+}
+
+/* dark mode moon */
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .blog-detail-nav .theme-toggle-icon,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon,
+html[data-theme="dark"] .theme-icon,
+body.dark .theme-toggle .theme-toggle-icon,
+body.dark [data-theme-toggle] .theme-toggle-icon,
+body.dark .theme-icon {
+  width: calc(var(--same-toggle-icon-size) + 3px) !important;
+  height: calc(var(--same-toggle-icon-size) + 3px) !important;
+
+  border: 0 !important;
+  background: currentColor !important;
+  box-shadow: none !important;
+  transform: rotate(-8deg) scale(1) !important;
+
+  -webkit-mask: none !important;
+  mask: none !important;
+}
+
+/* hide sun rays in dark mode */
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .blog-detail-nav .theme-toggle-icon::before,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon::before,
+html[data-theme="dark"] .theme-icon::before,
+body.dark .theme-toggle .theme-toggle-icon::before,
+body.dark [data-theme-toggle] .theme-toggle-icon::before,
+body.dark .theme-icon::before {
+  opacity: 0 !important;
+  transform: rotate(80deg) scale(0) !important;
+}
+
+/* show moon cut in dark mode */
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .blog-detail-nav .theme-toggle-icon::after,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon::after,
+html[data-theme="dark"] .theme-icon::after,
+body.dark .theme-toggle .theme-toggle-icon::after,
+body.dark [data-theme-toggle] .theme-toggle-icon::after,
+body.dark .theme-icon::after {
+  display: block !important;
+}
+
+/* phone/tablet size */
+@media (max-width: 1024px) {
+  :root {
+    --same-toggle-size: 24px;
+    --same-toggle-icon-size: 11px;
+  }
+}

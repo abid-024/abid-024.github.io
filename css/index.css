@@ -20304,3 +20304,57 @@ body.page-home .fs-cursor {
     margin-bottom: 18px !important;
   }
 }
+
+
+
+
+/* GLASS GLOW SWEEP ON TOP BLUE GRADIENT */
+.top-gradient::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -35%;
+  z-index: 1;
+  width: 48%;
+  height: 140%;
+  pointer-events: none;
+
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 22%,
+    rgba(255, 255, 255, 0.28) 48%,
+    rgba(255, 255, 255, 0.08) 68%,
+    transparent 100%
+  );
+
+  filter: blur(10px);
+  transform: skewX(-22deg);
+  opacity: 0;
+  animation: topGlassSweep 7s ease-in-out infinite;
+}
+
+@keyframes topGlassSweep {
+  0% {
+    left: -35%;
+    opacity: 0.30;
+  }
+
+  10% {
+    opacity: 0.55;
+  }
+
+  28% {
+    opacity: 0.70;
+  }
+
+  45% {
+    left: 108%;
+    opacity: 0.55;
+  }
+
+  100% {
+    left: 108%;
+    opacity: 0.30;
+  }
+}

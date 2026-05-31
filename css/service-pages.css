@@ -4008,53 +4008,13 @@ blockquote {
   font-weight: 900;
   cursor: pointer;
 }
-.service-contact-form {
-  display: grid;
-  gap: 10px;
-  margin-top: 18px;
-}
-.service-contact-form input,
-.service-contact-form textarea {
-  width: 100%;
-  border: 1.5px solid rgba(17, 17, 17, 0.22);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.92);
-  color: #101116;
-  font: inherit;
-  padding: 12px 14px;
-}
-.service-contact-form textarea {
-  resize: vertical;
-}
-.service-contact-form button {
-  min-height: 44px;
-  border: 2px solid var(--line);
-  border-radius: 999px;
-  background: linear-gradient(90deg, #161611, #4d3a1d);
-  color: #fff;
-  font: inherit;
-  font-weight: 900;
-  cursor: pointer;
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-.service-contact-form button:hover,
-.service-contact-form button:focus-visible {
-  transform: translate(-2px, -2px);
-  box-shadow: 5px 5px 0 rgba(17, 17, 17, 0.16);
-}
+
 .automation-workflow-check p,
 .local-schedule aside p {
   margin: 0 0 10px;
   color: #565656;
 }
-.automation-workflow-check .service-contact-form button {
-  background: linear-gradient(90deg, #8d5af7, #3f2c66);
-}
-.local-schedule .service-contact-form button {
-  background: linear-gradient(90deg, #2777c4, #2aabd2);
-}
+
 .automation-message-panel {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -7771,16 +7731,7 @@ body.vault-page-popup-open {
     height: 16px !important;
   }
 }
-.service-name-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-@media (max-width: 560px) {
-  .service-name-row {
-    grid-template-columns: 1fr;
-  }
-}
+
 @media (max-width: 780px) {
   .page-contact .contact-theme-toggle {
     position: static !important;
@@ -8410,8 +8361,7 @@ body.local-seo-body .local-seo-actions {
   margin-top: 28px !important;
 }
 body.local-seo-body .local-seo-button,
-body.local-seo-body .service-footer-cta,
-body.local-seo-body .service-contact-form button {
+body.local-seo-body .service-footer-cta {
   display: inline-flex !important;
   min-height: 42px !important;
   align-items: center !important;
@@ -8429,7 +8379,6 @@ body.local-seo-body .service-contact-form button {
     background 160ms ease !important;
 }
 body.local-seo-body .local-seo-button.is-primary,
-body.local-seo-body .service-contact-form button,
 body.local-seo-body .service-footer-cta {
   border-color: var(--local-accent) !important;
   background: var(--local-accent) !important;
@@ -8437,8 +8386,7 @@ body.local-seo-body .service-footer-cta {
   box-shadow: 5px 5px 0 rgba(78, 184, 221, 0.34) !important;
 }
 body.local-seo-body .local-seo-button:hover,
-body.local-seo-body .service-footer-cta:hover,
-body.local-seo-body .service-contact-form button:hover {
+body.local-seo-body .service-footer-cta:hover {
   transform: translate(-2px, -2px) !important;
   box-shadow: 8px 8px 0 var(--local-shadow) !important;
 }
@@ -8742,50 +8690,7 @@ body.local-seo-body .local-schedule {
 body.local-seo-body .local-schedule aside {
   padding: 18px !important;
 }
-body.local-seo-body .service-contact-form {
-  display: grid !important;
-  gap: 10px !important;
-}
-body.local-seo-body .service-name-row {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 10px !important;
-}
-body.local-seo-body .service-contact-form input,
-body.local-seo-body .service-contact-form textarea {
-  width: 100% !important;
-  min-width: 0 !important;
-  border: 1.5px solid var(--local-line-soft) !important;
-  border-radius: 10px !important;
-  background: rgba(255, 255, 255, 0.06) !important;
-  color: var(--local-ink) !important;
-  outline: none !important;
-  padding: 12px 13px !important;
-}
-body.local-seo-body .service-contact-form textarea {
-  resize: vertical !important;
-}
-body.local-seo-body .service-contact-form input::placeholder,
-body.local-seo-body .service-contact-form textarea::placeholder {
-  color: rgba(255, 244, 222, 0.42) !important;
-}
-:root:not([data-theme="dark"]) body.local-seo-body .service-contact-form input,
-:root:not([data-theme="dark"])
-  body.local-seo-body
-  .service-contact-form
-  textarea {
-  background: rgba(255, 255, 255, 0.72) !important;
-}
-:root:not([data-theme="dark"])
-  body.local-seo-body
-  .service-contact-form
-  input::placeholder,
-:root:not([data-theme="dark"])
-  body.local-seo-body
-  .service-contact-form
-  textarea::placeholder {
-  color: rgba(20, 34, 51, 0.44) !important;
-}
+
 body.local-seo-body .service-site-footer {
   border: 2px solid var(--local-line) !important;
   border-radius: 22px !important;
@@ -9041,9 +8946,7 @@ body.local-seo-body .service-footer-bottom {
     transform: scale(1.04) !important;
     z-index: 2 !important;
   }
-  body.local-seo-body .service-name-row {
-    grid-template-columns: 1fr !important;
-  }
+  
   body.local-seo-body .service-footer-main {
     grid-template-columns: 1fr !important;
   }

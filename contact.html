@@ -142,56 +142,85 @@
         <div class="contact-message-box">
           <h2>Quick message</h2>
           <p>This sends your message directly to my inbox.</p>
-          <form
-            action="https://api.web3forms.com/submit"
-            class="contact-form"
-            data-contact-message-form=""
-            method="POST"
-          >
+
+          <form class="contact-form" data-contact-message-form>
             <input
               name="access_key"
               type="hidden"
               value="4c01f60d-7d14-4496-84ce-4f2a3802ff50"
             />
+
             <input
               name="subject"
               type="hidden"
-              value="New message from FlowSync website"
+              value="New message from FlowSync contact page"
             />
+
             <input
               name="from_name"
               type="hidden"
               value="FlowSync Contact Form"
             />
-            <div class="service-name-row">
-              <input
-                autocomplete="given-name"
-                name="first_name"
-                placeholder="First Name"
-                required=""
-                type="text"
-              />
-              <input
-                autocomplete="family-name"
-                name="last_name"
-                placeholder="Last Name"
-                required=""
-                type="text"
-              />
-            </div>
+
+            <input name="page_url" type="hidden" value="" />
+            <input name="page_title" type="hidden" value="" />
+
             <input
-              autocomplete="email"
-              name="email"
-              placeholder="Your email"
-              required=""
-              type="email"
+              type="checkbox"
+              name="botcheck"
+              tabindex="-1"
+              autocomplete="off"
+              style="display: none"
             />
-            <textarea
-              name="message"
-              placeholder="Write the message."
-              required=""
-            ></textarea>
+
+            <div class="contact-form-row">
+              <label>
+                <span>First Name</span>
+                <input
+                  autocomplete="given-name"
+                  name="first_name"
+                  placeholder="First"
+                  required
+                  type="text"
+                />
+              </label>
+
+              <label>
+                <span>Last Name</span>
+                <input
+                  autocomplete="family-name"
+                  name="last_name"
+                  placeholder="Last"
+                  required
+                  type="text"
+                />
+              </label>
+            </div>
+
+            <label>
+              <span>Email</span>
+              <input
+                autocomplete="email"
+                name="email"
+                placeholder="you@email.com"
+                required
+                type="email"
+              />
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea
+                name="message"
+                placeholder="Write the main point..."
+                required
+                rows="4"
+              ></textarea>
+            </label>
+
             <button type="submit">Send Message</button>
+
+            <p class="contact-form-status" data-contact-form-status></p>
           </form>
         </div>
       </section>

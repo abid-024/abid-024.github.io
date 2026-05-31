@@ -1035,20 +1035,6 @@ body.contact-page img {
   transform: none;
 }
 
-.contact-form button[type="submit"]:hover {
-  transform: translate(-2px, -2px);
-  box-shadow:
-    7px 7px 0 rgba(17, 17, 17, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  filter: saturate(1.08);
-}
-
-.contact-form button[type="submit"]:disabled {
-  cursor: wait;
-  opacity: 0.82;
-  transform: none;
-}
-
 .contact-form-status {
   min-height: 16px;
   margin: 0;
@@ -1131,15 +1117,6 @@ html[data-theme="dark"] .contact-form textarea:focus {
   .contact-form button[type="submit"] {
     min-height: 40px;
     font-size: 0.84rem;
-  }
-}
-
-/* PHONE/TABLET: QUICK MESSAGE FORM AT BOTTOM */
-@media (max-width: 900px) {
-  .contact-shell > .contact-message-box {
-    width: 100%;
-    max-width: none;
-    order: 99;
   }
 }
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abid-024.github.io/abid-portfolio/sitemap.xml

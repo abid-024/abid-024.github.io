@@ -238,13 +238,14 @@ function getCurrentHomeAnchor() {
 function getLinkReturnAnchor(link) {
   const href = link?.getAttribute("href") || "";
 
-  if (href.includes("automation.html")) return "#services";
-  if (href.includes("web-dev.html")) return "#services";
-  if (href.includes("local-seo.html")) return "#services";
-  if (href.includes("networking.html")) return "#services";
-  if (href.includes("projects.html")) return "#blog";
-  if (href.includes("gallery.html")) return "#blog";
-  if (href.includes("contact.html")) return "#contact";
+  if (href.includes("automation/") || href.includes("automation.html")) return "#services";
+  if (href.includes("web-dev/") || href.includes("web-dev.html")) return "#services";
+  if (href.includes("local-seo/") || href.includes("local-seo.html")) return "#services";
+  if (href.includes("ui-ux/") || href.includes("ui-ux.html")) return "#services";
+  if (href.includes("networking/") || href.includes("networking.html")) return "#services";
+  if (href.includes("feature-project/") || href.includes("featured-project.html")) return "#blog";
+  if (href.includes("blog/") || href.includes("blog.html")) return "#blog";
+  if (href.includes("contact/") || href.includes("contact.html")) return "#contact";
 
   return getCurrentHomeAnchor();
 }
@@ -283,7 +284,7 @@ function restoreHomeAnchorIfNeeded() {
 }
 
 function setupReturnLinks() {
-  qsa('a[href$=".html"], a[href*=".html#"]').forEach((link) => {
+  qsa('a[href$=".html"], a[href*=".html#"], a[href$="/"], a[href*="/#"]').forEach((link) => {
     link.addEventListener("click", () => {
       saveReturnAnchor(getLinkReturnAnchor(link));
     });

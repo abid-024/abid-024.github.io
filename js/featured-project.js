@@ -6,8 +6,7 @@ const projects = [
     type: "Web",
     status: "Live",
     year: "2026",
-    image:
-      "assets/images/f1.png",
+    image: "assets/images/f1.png",
     link: "feature-project/web-dev-project.html",
     description:
       "A responsive portfolio build with a strong hero, clean service flow, project proof, and mobile-friendly structure.",
@@ -20,8 +19,7 @@ const projects = [
     type: "Flow",
     status: "Ready",
     year: "2026",
-    image:
-      "assets/images/f2.png",
+    image: "assets/images/f2.png",
     link: "feature-project/automation-project.html",
     description:
       "A simple automation system for collecting requests, checking details, routing leads, and sending the right next step.",
@@ -34,8 +32,7 @@ const projects = [
     type: "SEO",
     status: "Ready",
     year: "2026",
-    image:
-      "assets/images/f3.png",
+    image: "assets/images/f3.png",
     link: "feature-project/gmb-project.html",
     description:
       "A Google Business Profile and local visibility project focused on maps presence, trust signals, and clean business info.",
@@ -61,8 +58,7 @@ const projects = [
     type: "Mixed",
     status: "Built",
     year: "2026",
-    image:
-      "assets/images/f5.png",
+    image: "assets/images/f5.png",
     link: "feature-project/others-project.html",
     description:
       "A flexible showcase for mixed experiments, small tools, creative concepts, and design work that lives outside one service box.",
@@ -75,8 +71,7 @@ const projects = [
     type: "Hidden",
     status: "Locked",
     year: "2026",
-    image:
-      "assets/images/f6.png",
+    image: "assets/images/f6.png",
     link: "feature-project/secret-project.html",
     description:
       "A hidden experimental project area for surprise ideas, protected concepts, playful interactions, and mystery-style portfolio work.",

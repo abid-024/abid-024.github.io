@@ -8946,7 +8946,7 @@ body.local-seo-body .service-footer-bottom {
     transform: scale(1.04) !important;
     z-index: 2 !important;
   }
-  
+
   body.local-seo-body .service-footer-main {
     grid-template-columns: 1fr !important;
   }
@@ -11392,7 +11392,6 @@ html[data-theme="dark"] body.page-uiux .uiux-brand img {
   }
 }
 
-
 /* PREMIUM MINI SERVICE FORM */
 .service-contact-form {
   width: 100%;
@@ -11406,8 +11405,16 @@ html[data-theme="dark"] body.page-uiux .uiux-brand img {
   border: 1.25px solid rgba(17, 17, 17, 0.14);
   border-radius: 20px;
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.88), rgba(255, 250, 241, 0.72)),
-    radial-gradient(circle at 100% 0%, rgba(183, 156, 255, 0.13), transparent 34%);
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 250, 241, 0.72)
+    ),
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(183, 156, 255, 0.13),
+      transparent 34%
+    );
   box-shadow:
     8px 8px 0 rgba(183, 156, 255, 0.1),
     0 14px 32px rgba(17, 17, 17, 0.07);

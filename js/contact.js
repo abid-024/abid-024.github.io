@@ -165,10 +165,9 @@ function setupContactMessageForm() {
 
       return false;
     },
-    true
+    true,
   );
 }
-
 
 function setupContactFormPlacement() {
   const messageBox = document.querySelector(".contact-message-box");

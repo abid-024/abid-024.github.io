@@ -1138,3 +1138,135 @@ img,
   bottom: -8px !important;
   height: 5px !important;
 }
+
+
+
+/* FINAL PHONE NAV FIT + UNDERLINE FIX */
+@media (max-width: 520px) {
+  .site-nav,
+  .automation-service-nav,
+  .web-dev-nav,
+  .local-seo-nav,
+  .cyber-nav,
+  .uiux-service-nav,
+  .service-hub-nav {
+    width: calc(100% - 20px) !important;
+    grid-template-columns: minmax(0, 1fr) 34px !important;
+    gap: 6px !important;
+    padding: 7px 7px !important;
+  }
+
+  .site-nav > nav,
+  .automation-service-nav > nav,
+  .web-dev-nav > nav,
+  .local-seo-nav > nav,
+  .cyber-nav > nav,
+  .uiux-service-nav > nav,
+  .service-hub-nav > nav {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    overflow: visible !important;
+  }
+
+  .site-nav > nav a,
+  .automation-service-nav > nav a,
+  .web-dev-nav > nav a,
+  .local-seo-nav > nav a,
+  .cyber-nav > nav a,
+  .uiux-service-nav > nav a,
+  .service-hub-nav > nav a {
+    position: relative !important;
+    flex: 0 0 auto !important;
+    padding: 7px 0 9px !important;
+    font-size: 0.78rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .site-nav > nav a::after,
+  .automation-service-nav > nav a::after,
+  .web-dev-nav > nav a::after,
+  .local-seo-nav > nav a::after,
+  .cyber-nav > nav a::after,
+  .uiux-service-nav > nav a::after,
+  .service-hub-nav > nav a::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: 1px !important;
+    width: 24px !important;
+    height: 5px !important;
+    border-radius: 999px !important;
+    background: var(--fs-nav-accent-soft, rgba(135, 245, 176, 0.42)) !important;
+    opacity: 1 !important;
+    transform: translateX(-50%) scaleX(0.78) !important;
+  }
+
+  .site-nav > nav a:hover::after,
+  .site-nav > nav a:active::after,
+  .site-nav > nav a.is-active::after,
+  .automation-service-nav > nav a:hover::after,
+  .automation-service-nav > nav a:active::after,
+  .web-dev-nav > nav a:hover::after,
+  .web-dev-nav > nav a:active::after,
+  .local-seo-nav > nav a:hover::after,
+  .local-seo-nav > nav a:active::after,
+  .cyber-nav > nav a:hover::after,
+  .cyber-nav > nav a:active::after,
+  .uiux-service-nav > nav a:hover::after,
+  .uiux-service-nav > nav a:active::after,
+  .service-hub-nav > nav a:hover::after,
+  .service-hub-nav > nav a:active::after {
+    width: 32px !important;
+    transform: translateX(-50%) scaleX(1) !important;
+  }
+
+  .site-nav .theme-toggle,
+  .automation-service-nav .theme-toggle,
+  .web-dev-nav .theme-toggle,
+  .local-seo-nav .theme-toggle,
+  .cyber-nav .theme-toggle,
+  .uiux-service-nav .theme-toggle,
+  .service-hub-nav .theme-toggle {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+  }
+}
+
+
+/* MAIN PHONE NAV UNDERLINE COLOR */
+@media (max-width: 760px) {
+  html[data-theme="light"] .site-nav nav a::after,
+  html[data-theme="light"] .site-nav > nav a::after {
+    background: #E5A5E9 !important;
+  }
+
+  html[data-theme="dark"] .site-nav nav a::after,
+  html[data-theme="dark"] .site-nav > nav a::after {
+    background: rgba(168, 119, 255, 0.58) !important;
+  }
+
+  html[data-theme="light"] .site-nav nav a:hover::after,
+  html[data-theme="light"] .site-nav nav a:active::after,
+  html[data-theme="light"] .site-nav nav a.is-active::after,
+  html[data-theme="light"] .site-nav > nav a:hover::after,
+  html[data-theme="light"] .site-nav > nav a:active::after,
+  html[data-theme="light"] .site-nav > nav a.is-active::after {
+    background: #E5A5E9 !important;
+  }
+
+  html[data-theme="dark"] .site-nav nav a:hover::after,
+  html[data-theme="dark"] .site-nav nav a:active::after,
+  html[data-theme="dark"] .site-nav nav a.is-active::after,
+  html[data-theme="dark"] .site-nav > nav a:hover::after,
+  html[data-theme="dark"] .site-nav > nav a:active::after,
+  html[data-theme="dark"] .site-nav > nav a.is-active::after {
+    background: rgba(168, 119, 255, 0.78) !important;
+  }
+}

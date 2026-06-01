@@ -304,6 +304,9 @@ function setupCreativeTitleElastic() {
   const titleText = title.textContent.trim().replace(/\s+/g, " ");
   const letters = [];
   const wrapper = document.createElement("span");
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  let resetTimer = 0;
 
   wrapper.className = "creative-title-text";
   wrapper.setAttribute("aria-hidden", "true");
@@ -315,6 +318,7 @@ function setupCreativeTitleElastic() {
   titleText.split(" ").forEach((word) => {
     const wordWrap = document.createElement("span");
     wordWrap.className = "creative-title-word";
+    wordWrap.setAttribute("tabindex", "0");
 
     Array.from(word).forEach((char, index) => {
       const letter = document.createElement("span");
@@ -332,6 +336,8 @@ function setupCreativeTitleElastic() {
   title.appendChild(wrapper);
 
   function resetLetters() {
+    window.clearTimeout(resetTimer);
+
     qsa(".creative-title-word", title).forEach((word) => {
       word.classList.remove("is-elastic-active");
     });
@@ -342,29 +348,12 @@ function setupCreativeTitleElastic() {
     });
   }
 
-  function updateLetters(event) {
-    const activeWord = event.target.closest(".creative-title-word");
-
-    if (!activeWord || !title.contains(activeWord)) {
-      resetLetters();
-      return;
-    }
+  function animateWord(activeWord, xProgress = 0.5, direction = -1, autoReset = false) {
+    if (!activeWord || !title.contains(activeWord)) return;
 
     const activeLetters = qsa(".creative-title-letter", activeWord);
-    const rect = activeWord.getBoundingClientRect();
-
-    const xProgress = Math.min(
-      1,
-      Math.max(0, (event.clientX - rect.left) / rect.width),
-    );
-
-    const yProgress = Math.min(
-      1,
-      Math.max(0, (event.clientY - rect.top) / rect.height),
-    );
-
     const activeIndex = xProgress * Math.max(1, activeLetters.length - 1);
-    const direction = yProgress < 0.5 ? -1 : 1;
+    const strength = canHover ? 18 : 11;
 
     qsa(".creative-title-word", title).forEach((word) => {
       word.classList.toggle("is-elastic-active", word === activeWord);
@@ -380,19 +369,62 @@ function setupCreativeTitleElastic() {
       const wordLetterIndex = activeLetters.indexOf(letter);
       const distance = wordLetterIndex - activeIndex;
       const pull = Math.exp(-(distance * distance) / 28);
-      const ripple = Math.sin(distance * 0.82) * 4;
-      const y = direction * (18 * pull + ripple);
-      const rotate = direction * distance * pull * 0.65;
+      const ripple = Math.sin(distance * 0.82) * 3;
+      const y = direction * (strength * pull + ripple);
+      const rotate = direction * distance * pull * 0.55;
 
       letter.style.setProperty("--elastic-y", y.toFixed(2));
       letter.style.setProperty("--elastic-rotate", rotate.toFixed(2));
     });
+
+    if (autoReset) {
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(resetLetters, 650);
+    }
   }
 
-  title.addEventListener("pointerenter", updateLetters);
-  title.addEventListener("pointermove", updateLetters);
-  title.addEventListener("pointerleave", resetLetters);
-  title.addEventListener("blur", resetLetters);
+  function updateFromPointer(event, autoReset = false) {
+    const activeWord = event.target.closest(".creative-title-word");
+
+    if (!activeWord || !title.contains(activeWord)) {
+      if (canHover) resetLetters();
+      return;
+    }
+
+    const rect = activeWord.getBoundingClientRect();
+
+    const xProgress = Math.min(
+      1,
+      Math.max(0, (event.clientX - rect.left) / rect.width),
+    );
+
+    const yProgress = Math.min(
+      1,
+      Math.max(0, (event.clientY - rect.top) / rect.height),
+    );
+
+    const direction = yProgress < 0.5 ? -1 : 1;
+
+    animateWord(activeWord, xProgress, direction, autoReset);
+  }
+
+  if (canHover) {
+    title.addEventListener("pointerenter", updateFromPointer);
+    title.addEventListener("pointermove", updateFromPointer);
+    title.addEventListener("pointerleave", resetLetters);
+    title.addEventListener("blur", resetLetters);
+  }
+
+  title.addEventListener("pointerdown", (event) => {
+    updateFromPointer(event, true);
+  });
+
+  title.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+
+    const activeWord = event.target.closest(".creative-title-word");
+    animateWord(activeWord, 0.5, -1, true);
+  });
 }
 
 /* ---------- portfolio tabs ---------- */

@@ -20409,3 +20409,28 @@ body.page-home .fs-cursor {
     max-height: 390px !important;
   }
 }
+
+
+/* PHONE SAFE CREATIVE TITLE TAP FIX */
+.creative-title-word {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.creative-title-letter {
+  backface-visibility: hidden;
+}
+
+@media (hover: none) {
+  .creative-title-word:hover .creative-title-letter {
+    transform:
+      translateY(calc(var(--elastic-y, 0) * 1px))
+      rotate(calc(var(--elastic-rotate, 0) * 1deg)) !important;
+  }
+
+  .creative-title-letter {
+    transition:
+      transform 620ms cubic-bezier(0.18, 1.45, 0.32, 1),
+      color 200ms ease !important;
+  }
+}

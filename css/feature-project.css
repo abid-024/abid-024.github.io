@@ -1,4 +1,4 @@
-/* Shared CSS for files inside /feature-project/.
+﻿/* Shared CSS for files inside /feature-project/.
    Keeps HTML in the folder and fixes nav/spacing without the old blurred nav. */
 .nav-wrap {
   padding: 18px 0 24px !important;
@@ -100,3 +100,4 @@ body.dark .nav-wrap .nav {
 .footer {
   padding: 18px 0 !important;
 }
+

@@ -1,4 +1,4 @@
-const projects = [
+﻿const projects = [
   {
     number: "01",
     title: "Portfolio Website",
@@ -312,3 +312,4 @@ pauseAuto();
       .forEach((img) => img.setAttribute("draggable", "false"));
   }
 })();
+

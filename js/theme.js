@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const root = document.documentElement;
   const toggles = Array.from(
     document.querySelectorAll(
@@ -169,3 +169,4 @@
     setupCursor();
   });
 })();
+

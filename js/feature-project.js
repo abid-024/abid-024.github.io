@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const root = document.documentElement;
   const body = document.body;
   const toggle = document.querySelector("#themeToggle, [data-theme-toggle]");
@@ -28,3 +28,4 @@
     );
   }
 })();
+

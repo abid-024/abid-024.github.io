@@ -1,4 +1,4 @@
-/* ==================================================
+﻿/* ==================================================
    SERVICE PAGE ONLY
    Save as: css/service.css
 ================================================== */
@@ -515,7 +515,7 @@ html:not([data-theme="dark"]) .service-hub-brand img {
 }
 
 .service-hub-card-link::after {
-  content: "›";
+  content: "鈥?;
   font-size: 1.6rem;
   line-height: 0;
 }
@@ -767,3 +767,4 @@ html:not([data-theme="dark"]) .service-hub-brand img {
     animation: none !important;
   }
 }
+

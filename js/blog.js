@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const root = document.documentElement;
   const toggles = Array.from(
     document.querySelectorAll(
@@ -170,3 +170,4 @@
       .forEach((img) => img.setAttribute("draggable", "false"));
   }
 })();
+

@@ -1,4 +1,4 @@
-/* =========================================================
+﻿/* =========================================================
    INDEX ONLY JS - FRESH NO-MAIN VERSION
    Use with css/index.css.
    Theme system: only light/dark using html[data-theme].
@@ -72,9 +72,9 @@ const featureCopy = {
 };
 
 const nameLanguages = [
-  "আবিদ হাসান",
-  "阿比德 哈桑",
-  "アビド ハサン",
+  "唳嗋Μ唳苦Ζ 唳灌唳膏唳?,
+  "闃挎瘮寰?鍝堟",
+  "銈儞銉?銉忋偟銉?,
   "Abid Hasan",
 ];
 
@@ -928,3 +928,4 @@ if (document.readyState === "loading") {
     .querySelectorAll("img")
     .forEach((img) => img.setAttribute("draggable", "false"));
 })();
+

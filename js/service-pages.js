@@ -1,4 +1,4 @@
-/* SERVICE PAGES JS
+﻿/* SERVICE PAGES JS
    Only handles service page Web3Forms AJAX submit.
    Theme/back-to-top is handled by js/theme.js.
 */
@@ -106,3 +106,4 @@
     initServiceForms();
   }
 })();
+

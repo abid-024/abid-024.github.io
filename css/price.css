@@ -1,4 +1,4 @@
-/* ==================================================
+﻿/* ==================================================
    Pricing Service Pages - Final Full CSS
    Link from /pricing/*.html as: ../css/pricing-service-pages.css
    Works with: pricing-automation, pricing-web, pricing-gmb,
@@ -812,7 +812,7 @@ html:not([data-theme="dark"]) .pricing-pay-brand img {
 
 .price-card a::after,
 .pricing-pay-card a::after {
-  content: "›";
+  content: "鈥?;
   font-size: 1.4rem;
   line-height: 0;
 }
@@ -1339,3 +1339,4 @@ html[data-theme="dark"] .pricing-pay-clarity-card .pricing-pay-kicker {
     transition: none !important;
   }
 }
+

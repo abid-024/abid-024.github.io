@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --bg: #f5f0df;
   --card: #fff8e8;
   --card-soft: #eee3ce;
@@ -5079,3 +5079,4 @@ html[data-theme="dark"] body.blog-article-6 ::-moz-selection {
   background: #c7ff3d !important;
   color: #101010 !important;
 }
+

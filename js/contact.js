@@ -1,4 +1,4 @@
-/* ==================================================
+﻿/* ==================================================
    CONTACT PAGE JS
    Clock + copy + AJAX Web3Forms submit
 ================================================== */
@@ -196,3 +196,4 @@ function setupContactFormPlacement() {
     phoneScreen.addListener(placeForm);
   }
 }
+

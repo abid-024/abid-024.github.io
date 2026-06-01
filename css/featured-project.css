@@ -1,4 +1,4 @@
-:root {
+﻿:root {
   --cream: #fff8e8;
   --card-soft: #efe2ca;
   --ink: #11110f;
@@ -1583,3 +1583,4 @@ html[data-theme="dark"] .project-vault-page .next-btn {
 .project-vault-page .vault-brandline {
   padding-right: 72px !important;
 }
+

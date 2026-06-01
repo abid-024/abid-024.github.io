@@ -1,4 +1,5 @@
-User-agent: *
+﻿User-agent: *
 Allow: /
 
-Sitemap: https://abid-024.github.io/sitemap.xml
+Sitemap: https://abid-root.github.io/sitemap.xml
+

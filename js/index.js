@@ -72,9 +72,9 @@ const featureCopy = {
 };
 
 const nameLanguages = [
-  "唳嗋Μ唳苦Ζ 唳灌唳膏唳?,
-  "闃挎瘮寰?鍝堟",
-  "銈儞銉?銉忋偟銉?,
+  "\u0986\u09ac\u09bf\u09a6 \u09b9\u09be\u09b8\u09be\u09a8",
+  "\u963f\u6bd4\u5fb7 \u54c8\u6851",
+  "\u30a2\u30d3\u30c9 \u30cf\u30b5\u30f3",
   "Abid Hasan",
 ];
 
@@ -928,4 +928,3 @@ if (document.readyState === "loading") {
     .querySelectorAll("img")
     .forEach((img) => img.setAttribute("draggable", "false"));
 })();
-

@@ -5741,7 +5741,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -5806,7 +5806,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -5879,7 +5879,7 @@ main#home > .carousel-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -5968,7 +5968,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -6176,7 +6176,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }
@@ -7602,7 +7602,7 @@ body.vault-page-popup-open {
 :root:not([data-theme="dark"]) .local-service-brand img,
 :root:not([data-theme="dark"]) .web-dev-brand img,
 :root:not([data-theme="dark"]) .cyber-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
   background: transparent !important;
   object-fit: contain !important;
 }
@@ -8158,7 +8158,7 @@ body.local-seo-body .local-service-brand img {
   content: url("../assets/icon/brand-logodarkbg.png") !important;
 }
 :root:not([data-theme="dark"]) body.local-seo-body .local-service-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
 }
 body.local-seo-body .local-service-brand:hover img {
   box-shadow: 4px 4px 0 var(--local-accent-soft) !important;

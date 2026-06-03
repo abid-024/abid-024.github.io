@@ -330,7 +330,7 @@ html:not([data-theme="dark"]) .project-page-brand > img,
 html:not([data-theme="dark"]) .pricing-brand > img,
 html:not([data-theme="dark"]) .project-global-brand > img,
 html:not([data-theme="dark"]) .blog-logo-link > img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
 }
 
 .site-nav-brand:hover > img,

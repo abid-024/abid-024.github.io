@@ -1739,7 +1739,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -1786,7 +1786,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -1833,7 +1833,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -1886,7 +1886,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -2211,7 +2211,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }

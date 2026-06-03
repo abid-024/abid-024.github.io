@@ -2882,7 +2882,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -2929,7 +2929,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -2976,7 +2976,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -3029,7 +3029,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -3231,7 +3231,7 @@ blockquote {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }
@@ -4354,7 +4354,7 @@ body.vault-page-popup-open {
 :root:not([data-theme="dark"]) .local-service-brand img,
 :root:not([data-theme="dark"]) .web-dev-brand img,
 :root:not([data-theme="dark"]) .cyber-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
   background: transparent !important;
   object-fit: contain !important;
 }

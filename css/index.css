@@ -10976,7 +10976,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -11060,7 +11060,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -11154,7 +11154,7 @@ main#home > .carousel-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -11722,7 +11722,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent !important;
   object-fit: contain;
 }
@@ -13537,7 +13537,7 @@ main#home > .about-section {
 :root:not([data-theme="dark"]) .contact-brand img,
 :root:not([data-theme="dark"]) .service-footer-brand img,
 :root:not([data-theme="dark"]) .utility-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }
@@ -16009,7 +16009,7 @@ body.page-web .web-dev-window .web-window-note.web-window-strip img {
 
 /* Light theme logo */
 :root:not([data-theme="dark"]) .page-contact .contact-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
   background: transparent !important;
   object-fit: contain !important;
 }
@@ -18433,7 +18433,7 @@ body.vault-page-popup-open {
 :root:not([data-theme="dark"]) .local-service-brand img,
 :root:not([data-theme="dark"]) .web-dev-brand img,
 :root:not([data-theme="dark"]) .cyber-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
   background: transparent !important;
   object-fit: contain !important;
 }
@@ -18449,7 +18449,7 @@ body.vault-page-popup-open {
 
 /* Service page logo dark mode fix */
 :root:not([data-theme="dark"]) .service-hub-brand img {
-  content: url("../assets/icon/brand-logo.png") !important;
+  content: url("../assets/icon/brand-logo.webp") !important;
   background: transparent !important;
   object-fit: contain !important;
 }

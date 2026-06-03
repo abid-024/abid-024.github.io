@@ -319,7 +319,7 @@ html[data-theme="dark"] .pricing-pay-brand img {
 
 html:not([data-theme="dark"]) .pricing-brand img,
 html:not([data-theme="dark"]) .pricing-pay-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }

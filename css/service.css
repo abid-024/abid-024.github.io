@@ -172,7 +172,7 @@ html[data-theme="dark"] .service-hub-brand img {
 }
 
 html:not([data-theme="dark"]) .service-hub-brand img {
-  content: url("../assets/icon/brand-logo.png");
+  content: url("../assets/icon/brand-logo.webp");
   background: transparent;
   object-fit: contain;
 }

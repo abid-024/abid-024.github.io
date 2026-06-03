@@ -302,11 +302,12 @@ function setupCreativeTitleElastic() {
   if (!title || title.dataset.elasticReady === "true" || reducedMotion) return;
 
   const titleText = title.textContent.trim().replace(/\s+/g, " ");
-  const letters = [];
+  const words = [];
   const wrapper = document.createElement("span");
   const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
   let resetTimer = 0;
+  let touchWordIndex = -1;
 
   wrapper.className = "creative-title-text";
   wrapper.setAttribute("aria-hidden", "true");
@@ -319,67 +320,45 @@ function setupCreativeTitleElastic() {
     const wordWrap = document.createElement("span");
     wordWrap.className = "creative-title-word";
     wordWrap.setAttribute("tabindex", "0");
-
-    Array.from(word).forEach((char, index) => {
-      const letter = document.createElement("span");
-      letter.className = "creative-title-letter";
-      letter.style.setProperty("--i", index);
-      letter.textContent = char;
-
-      wordWrap.appendChild(letter);
-      letters.push(letter);
-    });
+    wordWrap.textContent = word;
 
     wrapper.appendChild(wordWrap);
+    words.push(wordWrap);
   });
 
   title.appendChild(wrapper);
 
-  function resetLetters() {
+  function resetWords() {
     window.clearTimeout(resetTimer);
 
     qsa(".creative-title-word", title).forEach((word) => {
       word.classList.remove("is-elastic-active");
     });
 
-    letters.forEach((letter) => {
-      letter.style.setProperty("--elastic-y", "0");
-      letter.style.setProperty("--elastic-rotate", "0");
+    words.forEach((word) => {
+      word.style.setProperty("--elastic-y", "0");
+      word.style.setProperty("--elastic-rotate", "0");
+      word.style.setProperty("--elastic-scale", "1");
     });
   }
 
   function animateWord(activeWord, xProgress = 0.5, direction = -1, autoReset = false) {
     if (!activeWord || !title.contains(activeWord)) return;
 
-    const activeLetters = qsa(".creative-title-letter", activeWord);
-    const activeIndex = xProgress * Math.max(1, activeLetters.length - 1);
-    const strength = canHover ? 18 : 11;
+    const strength = canHover ? 16 : 12;
+    const rotate = (xProgress - 0.5) * 8;
 
     qsa(".creative-title-word", title).forEach((word) => {
-      word.classList.toggle("is-elastic-active", word === activeWord);
-    });
-
-    letters.forEach((letter) => {
-      if (!activeWord.contains(letter)) {
-        letter.style.setProperty("--elastic-y", "0");
-        letter.style.setProperty("--elastic-rotate", "0");
-        return;
-      }
-
-      const wordLetterIndex = activeLetters.indexOf(letter);
-      const distance = wordLetterIndex - activeIndex;
-      const pull = Math.exp(-(distance * distance) / 28);
-      const ripple = Math.sin(distance * 0.82) * 3;
-      const y = direction * (strength * pull + ripple);
-      const rotate = direction * distance * pull * 0.55;
-
-      letter.style.setProperty("--elastic-y", y.toFixed(2));
-      letter.style.setProperty("--elastic-rotate", rotate.toFixed(2));
+      const isActive = word === activeWord;
+      word.classList.toggle("is-elastic-active", isActive);
+      word.style.setProperty("--elastic-y", isActive ? String(direction * strength) : "0");
+      word.style.setProperty("--elastic-rotate", isActive ? rotate.toFixed(2) : "0");
+      word.style.setProperty("--elastic-scale", isActive ? "1.035" : "1");
     });
 
     if (autoReset) {
       window.clearTimeout(resetTimer);
-      resetTimer = window.setTimeout(resetLetters, 650);
+      resetTimer = window.setTimeout(resetWords, 780);
     }
   }
 
@@ -387,7 +366,7 @@ function setupCreativeTitleElastic() {
     const activeWord = event.target.closest(".creative-title-word");
 
     if (!activeWord || !title.contains(activeWord)) {
-      if (canHover) resetLetters();
+      if (canHover) resetWords();
       return;
     }
 
@@ -411,18 +390,27 @@ function setupCreativeTitleElastic() {
   if (canHover) {
     title.addEventListener("pointerenter", updateFromPointer);
     title.addEventListener("pointermove", updateFromPointer);
-    title.addEventListener("pointerleave", resetLetters);
-    title.addEventListener("blur", resetLetters);
+    title.addEventListener("pointerleave", resetWords);
+    title.addEventListener("blur", resetWords);
   }
 
   title.addEventListener("pointerdown", (event) => {
-    updateFromPointer(event, true);
+    if (canHover) {
+      updateFromPointer(event, true);
+      return;
+    }
+
+    touchWordIndex = (touchWordIndex + 1) % words.length;
+    animateWord(words[touchWordIndex], 0.5, -1, true);
   });
 
   title.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
 
-    const activeWord = event.target.closest(".creative-title-word");
+    const activeWord =
+      event.target.closest(".creative-title-word") ||
+      words[(touchWordIndex + 1) % words.length];
+
     animateWord(activeWord, 0.5, -1, true);
   });
 }
@@ -533,8 +521,10 @@ function setupNameHover() {
   if (!name) return;
 
   const defaultName = "Abid Hasan";
+  const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   let index = 0;
   let timer = null;
+  let resetTimer = null;
 
   function setName(text) {
     window.clearTimeout(timer);
@@ -556,8 +546,30 @@ function setupNameHover() {
     setName(nameLanguages[index]);
   }
 
-  name.addEventListener("pointerenter", showNextLanguage);
-  name.addEventListener("pointerleave", () => setName(defaultName));
+  function showNextLanguageTemporarily() {
+    window.clearTimeout(resetTimer);
+    showNextLanguage();
+    resetTimer = window.setTimeout(() => setName(defaultName), 1250);
+  }
+
+  name.setAttribute("tabindex", "0");
+  name.setAttribute("role", "button");
+
+  if (canHover) {
+    name.addEventListener("pointerenter", showNextLanguage);
+    name.addEventListener("pointerleave", () => setName(defaultName));
+  }
+
+  name.addEventListener("pointerdown", (event) => {
+    if (canHover && event.pointerType === "mouse") return;
+    showNextLanguageTemporarily();
+  });
+
+  name.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    showNextLanguageTemporarily();
+  });
 }
 
 /* ---------- buttons and cards ---------- */

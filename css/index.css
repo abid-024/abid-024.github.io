@@ -1012,6 +1012,14 @@ body[data-time-mood="night"] .top-gradient::after {
   display: inline-flex;
   align-items: baseline;
   gap: 0.02em;
+  transform: translateY(calc(var(--elastic-y, 0) * 1px))
+    rotate(calc(var(--elastic-rotate, 0) * 1deg))
+    scale(var(--elastic-scale, 1));
+  transform-origin: center bottom;
+  transition:
+    transform 720ms var(--creative-title-easing),
+    color 220ms ease;
+  will-change: transform;
 }
 
 .creative-title-letter {
@@ -1025,6 +1033,7 @@ body[data-time-mood="night"] .top-gradient::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .creative-title-word,
   .creative-title-letter {
     transform: none !important;
     transition: color 160ms ease;
@@ -1637,6 +1646,8 @@ body[data-time-mood="night"] .top-gradient::after {
   font-size: 3.35rem;
   line-height: 1;
   font-weight: 760;
+  cursor: pointer;
+  touch-action: manipulation;
   transition:
     transform 160ms ease,
     opacity 160ms ease;
@@ -2724,7 +2735,8 @@ blockquote {
 .footer-brand {
   color: rgba(255, 255, 255, 0.1);
   font-size: 4.6rem;
-  line-height: 0.8;
+  letter-spacing: 0.07em;
+  line-height: 0.08;
   white-space: nowrap;
 }
 
@@ -4601,6 +4613,7 @@ blockquote {
 
   .footer-brand {
     font-size: 3rem;
+    letter-spacing: 0.06em;
   }
 
   .booking-grid {
@@ -20422,13 +20435,14 @@ body.page-home .fs-cursor {
 }
 
 @media (hover: none) {
-  .creative-title-word:hover .creative-title-letter {
+  .creative-title-word:hover {
     transform:
       translateY(calc(var(--elastic-y, 0) * 1px))
-      rotate(calc(var(--elastic-rotate, 0) * 1deg)) !important;
+      rotate(calc(var(--elastic-rotate, 0) * 1deg))
+      scale(var(--elastic-scale, 1)) !important;
   }
 
-  .creative-title-letter {
+  .creative-title-word {
     transition:
       transform 620ms cubic-bezier(0.18, 1.45, 0.32, 1),
       color 200ms ease !important;

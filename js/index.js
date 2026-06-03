@@ -308,6 +308,7 @@ function setupCreativeTitleElastic() {
 
   let resetTimer = 0;
   let touchWordIndex = -1;
+  let springTimers = [];
 
   wrapper.className = "creative-title-text";
   wrapper.setAttribute("aria-hidden", "true");
@@ -328,11 +329,18 @@ function setupCreativeTitleElastic() {
 
   title.appendChild(wrapper);
 
+  function clearSpringTimers() {
+    springTimers.forEach((springTimer) => window.clearTimeout(springTimer));
+    springTimers = [];
+  }
+
   function resetWords() {
     window.clearTimeout(resetTimer);
+    clearSpringTimers();
 
     qsa(".creative-title-word", title).forEach((word) => {
       word.classList.remove("is-elastic-active");
+      word.classList.remove("is-touch-spring");
     });
 
     words.forEach((word) => {
@@ -340,6 +348,12 @@ function setupCreativeTitleElastic() {
       word.style.setProperty("--elastic-rotate", "0");
       word.style.setProperty("--elastic-scale", "1");
     });
+  }
+
+  function setWordMotion(word, y, rotate, scale) {
+    word.style.setProperty("--elastic-y", String(y));
+    word.style.setProperty("--elastic-rotate", String(rotate));
+    word.style.setProperty("--elastic-scale", String(scale));
   }
 
   function animateWord(activeWord, xProgress = 0.5, direction = -1, autoReset = false) {
@@ -351,15 +365,43 @@ function setupCreativeTitleElastic() {
     qsa(".creative-title-word", title).forEach((word) => {
       const isActive = word === activeWord;
       word.classList.toggle("is-elastic-active", isActive);
-      word.style.setProperty("--elastic-y", isActive ? String(direction * strength) : "0");
-      word.style.setProperty("--elastic-rotate", isActive ? rotate.toFixed(2) : "0");
-      word.style.setProperty("--elastic-scale", isActive ? "1.035" : "1");
+      word.classList.remove("is-touch-spring");
+      setWordMotion(
+        word,
+        isActive ? direction * strength : 0,
+        isActive ? rotate.toFixed(2) : 0,
+        isActive ? 1.035 : 1,
+      );
     });
 
     if (autoReset) {
       window.clearTimeout(resetTimer);
       resetTimer = window.setTimeout(resetWords, 780);
     }
+  }
+
+  function animateTouchWord(activeWord) {
+    if (!activeWord || !title.contains(activeWord)) return;
+
+    window.clearTimeout(resetTimer);
+    clearSpringTimers();
+
+    const tilt = words.indexOf(activeWord) % 2 === 0 ? -4 : 4;
+
+    words.forEach((word) => {
+      const isActive = word === activeWord;
+      word.classList.toggle("is-elastic-active", isActive);
+      word.classList.toggle("is-touch-spring", isActive);
+      setWordMotion(word, isActive ? -24 : 0, isActive ? tilt : 0, isActive ? 1.08 : 1);
+    });
+
+    springTimers.push(
+      window.setTimeout(() => setWordMotion(activeWord, 13, -tilt * 0.55, 0.985), 150),
+      window.setTimeout(() => setWordMotion(activeWord, -8, tilt * 0.35, 1.04), 320),
+      window.setTimeout(() => setWordMotion(activeWord, 2, -tilt * 0.16, 1.008), 500),
+    );
+
+    resetTimer = window.setTimeout(resetWords, 880);
   }
 
   function updateFromPointer(event, autoReset = false) {
@@ -401,7 +443,7 @@ function setupCreativeTitleElastic() {
     }
 
     touchWordIndex = (touchWordIndex + 1) % words.length;
-    animateWord(words[touchWordIndex], 0.5, -1, true);
+    animateTouchWord(words[touchWordIndex]);
   });
 
   title.addEventListener("keydown", (event) => {
@@ -536,20 +578,26 @@ function setupNameHover() {
     }, 120);
   }
 
-  function showNextLanguage() {
+  function showNextLanguage(skipDefault = true) {
     index = (index + 1) % nameLanguages.length;
 
-    if (nameLanguages[index] === defaultName) {
+    if (skipDefault && nameLanguages[index] === defaultName) {
       index = (index + 1) % nameLanguages.length;
     }
 
     setName(nameLanguages[index]);
   }
 
-  function showNextLanguageTemporarily() {
+  function showNextTouchLanguage() {
     window.clearTimeout(resetTimer);
-    showNextLanguage();
-    resetTimer = window.setTimeout(() => setName(defaultName), 1250);
+    showNextLanguage(false);
+
+    if (nameLanguages[index] !== defaultName) {
+      resetTimer = window.setTimeout(() => {
+        index = 0;
+        setName(defaultName);
+      }, 1800);
+    }
   }
 
   name.setAttribute("tabindex", "0");
@@ -562,13 +610,13 @@ function setupNameHover() {
 
   name.addEventListener("pointerdown", (event) => {
     if (canHover && event.pointerType === "mouse") return;
-    showNextLanguageTemporarily();
+    showNextTouchLanguage();
   });
 
   name.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
-    showNextLanguageTemporarily();
+    showNextTouchLanguage();
   });
 }
 

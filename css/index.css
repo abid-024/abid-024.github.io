@@ -20444,7 +20444,13 @@ body.page-home .fs-cursor {
 
   .creative-title-word {
     transition:
-      transform 620ms cubic-bezier(0.18, 1.45, 0.32, 1),
+      transform 260ms cubic-bezier(0.2, 1.55, 0.32, 1),
       color 200ms ease !important;
+  }
+
+  .creative-title-word.is-touch-spring {
+    transition:
+      transform 280ms cubic-bezier(0.18, 1.75, 0.28, 1),
+      color 180ms ease !important;
   }
 }

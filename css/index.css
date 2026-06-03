@@ -1012,14 +1012,6 @@ body[data-time-mood="night"] .top-gradient::after {
   display: inline-flex;
   align-items: baseline;
   gap: 0.02em;
-  transform: translateY(calc(var(--elastic-y, 0) * 1px))
-    rotate(calc(var(--elastic-rotate, 0) * 1deg))
-    scale(var(--elastic-scale, 1));
-  transform-origin: center bottom;
-  transition:
-    transform 720ms var(--creative-title-easing),
-    color 220ms ease;
-  will-change: transform;
 }
 
 .creative-title-letter {
@@ -1033,7 +1025,6 @@ body[data-time-mood="night"] .top-gradient::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .creative-title-word,
   .creative-title-letter {
     transform: none !important;
     transition: color 160ms ease;
@@ -20435,22 +20426,15 @@ body.page-home .fs-cursor {
 }
 
 @media (hover: none) {
-  .creative-title-word:hover {
+  .creative-title-word:hover .creative-title-letter {
     transform:
       translateY(calc(var(--elastic-y, 0) * 1px))
-      rotate(calc(var(--elastic-rotate, 0) * 1deg))
-      scale(var(--elastic-scale, 1)) !important;
+      rotate(calc(var(--elastic-rotate, 0) * 1deg)) !important;
   }
 
-  .creative-title-word {
+  .creative-title-letter {
     transition:
-      transform 260ms cubic-bezier(0.2, 1.55, 0.32, 1),
+      transform 620ms cubic-bezier(0.18, 1.45, 0.32, 1),
       color 200ms ease !important;
-  }
-
-  .creative-title-word.is-touch-spring {
-    transition:
-      transform 280ms cubic-bezier(0.18, 1.75, 0.28, 1),
-      color 180ms ease !important;
   }
 }

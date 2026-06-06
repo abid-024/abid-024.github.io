@@ -792,6 +792,122 @@ body.dark .theme-icon::after {
   display: block !important;
 }
 
+/* Final visual lock: every theme toggle uses the homepage sun/moon icon. */
+.theme-toggle,
+.blog-theme-toggle,
+.pricing-theme-toggle,
+.page-theme-toggle,
+.contact-theme-toggle,
+.project-theme-toggle,
+.service-hub-theme-toggle,
+.uiux-theme-toggle,
+.nav-theme-toggle,
+[data-theme-toggle],
+#themeToggle {
+  color: #111111 !important;
+}
+
+html[data-theme="dark"] .theme-toggle,
+html[data-theme="dark"] .blog-theme-toggle,
+html[data-theme="dark"] .pricing-theme-toggle,
+html[data-theme="dark"] .page-theme-toggle,
+html[data-theme="dark"] .contact-theme-toggle,
+html[data-theme="dark"] .project-theme-toggle,
+html[data-theme="dark"] .service-hub-theme-toggle,
+html[data-theme="dark"] .uiux-theme-toggle,
+html[data-theme="dark"] .nav-theme-toggle,
+html[data-theme="dark"] [data-theme-toggle],
+html[data-theme="dark"] #themeToggle,
+body.dark .theme-toggle,
+body.dark [data-theme-toggle],
+body.dark #themeToggle {
+  color: #fff2d8 !important;
+}
+
+.theme-toggle .theme-toggle-icon,
+.blog-theme-toggle .theme-toggle-icon,
+.pricing-theme-toggle .theme-toggle-icon,
+.page-theme-toggle .theme-toggle-icon,
+.contact-theme-toggle .theme-toggle-icon,
+.project-theme-toggle .theme-toggle-icon,
+.service-hub-theme-toggle .theme-toggle-icon,
+.uiux-theme-toggle .theme-toggle-icon,
+.nav-theme-toggle .theme-toggle-icon,
+[data-theme-toggle] .theme-toggle-icon,
+.theme-icon {
+  width: 18px !important;
+  height: 18px !important;
+  border: 0 !important;
+  background: currentColor !important;
+}
+
+.theme-toggle .theme-toggle-icon::before,
+.blog-theme-toggle .theme-toggle-icon::before,
+.pricing-theme-toggle .theme-toggle-icon::before,
+.page-theme-toggle .theme-toggle-icon::before,
+.contact-theme-toggle .theme-toggle-icon::before,
+.project-theme-toggle .theme-toggle-icon::before,
+.service-hub-theme-toggle .theme-toggle-icon::before,
+.uiux-theme-toggle .theme-toggle-icon::before,
+.nav-theme-toggle .theme-toggle-icon::before,
+[data-theme-toggle] .theme-toggle-icon::before,
+.theme-icon::before {
+  inset: -8px !important;
+  background: repeating-conic-gradient(
+    currentColor 0deg 10deg,
+    transparent 10deg 45deg
+  ) !important;
+  -webkit-mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+  mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .service-hub-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .nav-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon,
+html[data-theme="dark"] .theme-icon,
+body.dark .theme-toggle .theme-toggle-icon,
+body.dark [data-theme-toggle] .theme-toggle-icon,
+body.dark .theme-icon {
+  width: 21px !important;
+  height: 21px !important;
+  transform: rotate(-8deg) scale(1) !important;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .service-hub-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .nav-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon::after,
+html[data-theme="dark"] .theme-icon::after,
+body.dark .theme-toggle .theme-toggle-icon::after,
+body.dark [data-theme-toggle] .theme-toggle-icon::after,
+body.dark .theme-icon::after {
+  background: #171021 !important;
+  display: block !important;
+}
+
 .nav-radar {
   display: none !important;
 }
@@ -1261,7 +1377,7 @@ img,
     background: #E5A5E9 !important;
   }
 
-  html[data-theme="dark"] .site-nav nav a:hover::after,
+html[data-theme="dark"] .site-nav nav a:hover::after,
   html[data-theme="dark"] .site-nav nav a:active::after,
   html[data-theme="dark"] .site-nav nav a.is-active::after,
   html[data-theme="dark"] .site-nav > nav a:hover::after,
@@ -1269,4 +1385,174 @@ img,
   html[data-theme="dark"] .site-nav > nav a.is-active::after {
     background: rgba(168, 119, 255, 0.78) !important;
   }
+}
+
+/* Absolute final toggle visual: same homepage sun/moon on every page. */
+.theme-toggle,
+.blog-theme-toggle,
+.pricing-theme-toggle,
+.page-theme-toggle,
+.contact-theme-toggle,
+.project-theme-toggle,
+.service-hub-theme-toggle,
+.uiux-theme-toggle,
+.nav-theme-toggle,
+[data-theme-toggle],
+#themeToggle {
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: #111111 !important;
+}
+
+html[data-theme="dark"] .theme-toggle,
+html[data-theme="dark"] .blog-theme-toggle,
+html[data-theme="dark"] .pricing-theme-toggle,
+html[data-theme="dark"] .page-theme-toggle,
+html[data-theme="dark"] .contact-theme-toggle,
+html[data-theme="dark"] .project-theme-toggle,
+html[data-theme="dark"] .service-hub-theme-toggle,
+html[data-theme="dark"] .uiux-theme-toggle,
+html[data-theme="dark"] .nav-theme-toggle,
+html[data-theme="dark"] [data-theme-toggle],
+html[data-theme="dark"] #themeToggle,
+body.dark .theme-toggle,
+body.dark [data-theme-toggle],
+body.dark #themeToggle {
+  color: #fff2d8 !important;
+}
+
+.theme-toggle .theme-toggle-icon,
+.blog-theme-toggle .theme-toggle-icon,
+.pricing-theme-toggle .theme-toggle-icon,
+.page-theme-toggle .theme-toggle-icon,
+.contact-theme-toggle .theme-toggle-icon,
+.project-theme-toggle .theme-toggle-icon,
+.service-hub-theme-toggle .theme-toggle-icon,
+.uiux-theme-toggle .theme-toggle-icon,
+.nav-theme-toggle .theme-toggle-icon,
+[data-theme-toggle] .theme-toggle-icon,
+.theme-icon {
+  position: relative !important;
+  display: block !important;
+  width: 18px !important;
+  height: 18px !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: currentColor !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+  transform: rotate(0deg) scale(1) !important;
+}
+
+.theme-toggle .theme-toggle-icon::before,
+.blog-theme-toggle .theme-toggle-icon::before,
+.pricing-theme-toggle .theme-toggle-icon::before,
+.page-theme-toggle .theme-toggle-icon::before,
+.contact-theme-toggle .theme-toggle-icon::before,
+.project-theme-toggle .theme-toggle-icon::before,
+.service-hub-theme-toggle .theme-toggle-icon::before,
+.uiux-theme-toggle .theme-toggle-icon::before,
+.nav-theme-toggle .theme-toggle-icon::before,
+[data-theme-toggle] .theme-toggle-icon::before,
+.theme-icon::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -8px !important;
+  display: block !important;
+  border-radius: 999px !important;
+  background: repeating-conic-gradient(
+    currentColor 0deg 10deg,
+    transparent 10deg 45deg
+  ) !important;
+  -webkit-mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+  mask: radial-gradient(
+    circle,
+    transparent 0 9px,
+    #000 9px 12px,
+    transparent 12px
+  ) !important;
+  opacity: 1 !important;
+  transform: rotate(0deg) scale(1) !important;
+}
+
+.theme-toggle .theme-toggle-icon::after,
+.blog-theme-toggle .theme-toggle-icon::after,
+.pricing-theme-toggle .theme-toggle-icon::after,
+.page-theme-toggle .theme-toggle-icon::after,
+.contact-theme-toggle .theme-toggle-icon::after,
+.project-theme-toggle .theme-toggle-icon::after,
+.service-hub-theme-toggle .theme-toggle-icon::after,
+.uiux-theme-toggle .theme-toggle-icon::after,
+.nav-theme-toggle .theme-toggle-icon::after,
+[data-theme-toggle] .theme-toggle-icon::after,
+.theme-icon::after {
+  content: "" !important;
+  position: absolute !important;
+  display: none !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 999px !important;
+  background: #171021 !important;
+  transform: translate(36%, -28%) !important;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .service-hub-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] .nav-theme-toggle .theme-toggle-icon,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon,
+html[data-theme="dark"] .theme-icon,
+body.dark .theme-toggle .theme-toggle-icon,
+body.dark [data-theme-toggle] .theme-toggle-icon,
+body.dark .theme-icon {
+  width: 21px !important;
+  height: 21px !important;
+  background: currentColor !important;
+  transform: rotate(-8deg) scale(1) !important;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .service-hub-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] .nav-theme-toggle .theme-toggle-icon::before,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon::before,
+html[data-theme="dark"] .theme-icon::before,
+body.dark .theme-toggle .theme-toggle-icon::before,
+body.dark [data-theme-toggle] .theme-toggle-icon::before,
+body.dark .theme-icon::before {
+  opacity: 0 !important;
+  transform: rotate(80deg) scale(0) !important;
+}
+
+html[data-theme="dark"] .theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .blog-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .pricing-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .page-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .contact-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .project-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .service-hub-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .uiux-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] .nav-theme-toggle .theme-toggle-icon::after,
+html[data-theme="dark"] [data-theme-toggle] .theme-toggle-icon::after,
+html[data-theme="dark"] .theme-icon::after,
+body.dark .theme-toggle .theme-toggle-icon::after,
+body.dark [data-theme-toggle] .theme-toggle-icon::after,
+body.dark .theme-icon::after {
+  display: block !important;
 }

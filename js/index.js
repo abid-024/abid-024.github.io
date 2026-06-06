@@ -649,6 +649,32 @@ function setupMailForm() {
     form.dataset.formReady = "true";
 
     form.addEventListener("submit", (event) => {
+      if (form.matches("[data-mail-form]")) {
+        const email = qs('input[type="email"]', form);
+        const message = qs("[data-mail-message]", form);
+        const submitButton = qs('button[type="submit"]', form);
+
+        event.preventDefault();
+
+        if (email && !email.checkValidity()) {
+          email.reportValidity();
+          return;
+        }
+
+        if (submitButton) {
+          submitButton.textContent = "Done";
+        }
+
+        if (message) {
+          message.setAttribute("role", "status");
+          message.setAttribute("aria-live", "polite");
+          message.textContent = "Submitted. Thank you.";
+        }
+
+        form.reset();
+        return;
+      }
+
       const action = form.getAttribute("action") || "";
       const method = form.getAttribute("method") || "";
 

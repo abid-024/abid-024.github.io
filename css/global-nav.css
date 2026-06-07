@@ -792,6 +792,157 @@ body.dark .theme-icon::after {
   display: block !important;
 }
 
+/* =========================================================
+   Fixed Site Texture + Coldboot Watermark
+   Shared across every page that loads the global navigation.
+========================================================= */
+
+html,
+body {
+  background-attachment: fixed !important;
+}
+
+body {
+  background-image: none !important;
+  background-color: var(
+    --bg,
+    var(--page-bg, var(--canvas, var(--surface, #f5f3e5)))
+  ) !important;
+}
+
+html[data-theme="dark"] body,
+html:has(body.dark) body {
+  background-color: var(
+    --bg,
+    var(--page-bg, var(--canvas, var(--surface, #15120f)))
+  ) !important;
+}
+
+html::before,
+html::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+}
+
+body:not(.is-lab-mode)::before {
+  background: none !important;
+  background-image: none !important;
+}
+
+body.blog-page,
+body.blog-article,
+body.contact-page,
+body.service-hub-page,
+body.service-detail-page,
+body.automation-service-body,
+body.web-dev-service-body,
+body.local-seo-body,
+body.cyber-page-body,
+body.page-uiux,
+body.page-services,
+body.page-vault,
+body.vault-page,
+body.project-vault-page,
+body.pricing-service-page,
+body.pricing-pay-page,
+body.utility-page,
+body.gallery-page,
+body.project-page,
+body.page-home,
+main#home > .about-section,
+main#home > .service-section,
+main#home > .feature-section,
+main#home > .carousel-section,
+.automation-flow-canvas,
+.web-window-canvas,
+.service-visual-frame,
+.visual,
+.vault-page,
+.project-page,
+.utility-page,
+.gallery-page {
+  background-image: none !important;
+}
+
+.hero-img,
+.image-box,
+.contact-left-card::before,
+.os-preview-body,
+.number-card,
+.automation-workflow-check,
+.automation-flow-canvas,
+.web-window-canvas,
+.service-visual-frame,
+.visual,
+.local-img-frame,
+.memory-pile,
+.gallery-wall {
+  background-image: none !important;
+}
+
+:root:not([data-theme="dark"]) .page-home main#home,
+:root:not([data-theme="dark"]) .page-home .about-section,
+:root:not([data-theme="dark"]) .page-home .service-section,
+:root:not([data-theme="dark"]) .page-home .feature-section,
+:root:not([data-theme="dark"]) .page-home .carousel-section {
+  background: transparent !important;
+}
+
+html::before {
+  inset: 0;
+  z-index: 0;
+  background-image:
+    radial-gradient(circle, rgba(16, 16, 16, 0.12) 1px, transparent 1.4px);
+  background-position: 0 0;
+  background-size: 12px 12px;
+  opacity: 0.3;
+}
+
+html::after {
+  top: clamp(30px, 6vh, 90px);
+  right: clamp(-200px, -10vw, -62px);
+  z-index: 0;
+  width: clamp(720px, 58vw, 960px);
+  aspect-ratio: 1;
+  background: center / contain no-repeat
+    url("../assets/icon/coldboot-watermark-black.webp");
+  opacity: 0.125;
+}
+
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+html[data-theme="dark"]::before,
+html:has(body.dark)::before {
+  background-image:
+    radial-gradient(circle, rgba(245, 243, 229, 0.16) 1px, transparent 1.4px);
+  opacity: 0.32;
+}
+
+html[data-theme="dark"]::after,
+html:has(body.dark)::after {
+  background-image: url("../assets/icon/coldboot-watermark-white.webp");
+  opacity: 0.135;
+}
+
+@media (max-width: 760px) {
+  html::after {
+    top: auto;
+    right: -38px;
+    bottom: 58px;
+    width: min(62vw, 245px);
+    opacity: 0.095;
+  }
+
+  html[data-theme="dark"]::after,
+  html:has(body.dark)::after {
+    opacity: 0.12;
+  }
+}
+
 /* Final visual lock: every theme toggle uses the homepage sun/moon icon. */
 .theme-toggle,
 .blog-theme-toggle,

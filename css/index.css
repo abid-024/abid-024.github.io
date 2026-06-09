@@ -10655,7 +10655,12 @@ main#home > .carousel-section {
   z-index: 0;
   color: rgba(245, 243, 229, 0.08);
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   font-size: clamp(4rem, 12vw, 9rem);
   font-weight: 800;
@@ -14139,7 +14144,12 @@ main#home > .carousel-section {
   bottom: -18px;
   color: rgba(16, 16, 16, 0.055);
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
     sans-serif;
   font-size: clamp(2.8rem, 8vw, 6rem);
   font-weight: 800;
@@ -17264,34 +17274,6 @@ body.vault-page-popup-open {
   }
 }
 
-/* Light theme: add same subtle grid effect on main index */
-:root:not([data-theme="dark"])
-  body:not(.local-seo-body):not(.automation-service-body):not(
-    .web-dev-service-body
-  ):not(.cyber-body):not(.projects-page):not(.page-contact):not(.page-blog):not(
-    .utility-page
-  ):not(.vault-page) {
-  background:
-    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px) 0 0 / 84px
-      84px,
-    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px) 0 0 /
-      84px 84px,
-    var(--page-bg) !important;
-}
-
-/* Light theme: keep the grid visible behind main index sections */
-:root:not([data-theme="dark"]) main#home > .about-section,
-:root:not([data-theme="dark"]) main#home > .service-section,
-:root:not([data-theme="dark"]) main#home > .feature-section,
-:root:not([data-theme="dark"]) main#home > .carousel-section {
-  background:
-    linear-gradient(rgba(17, 17, 17, 0.035) 1px, transparent 1px) 0 0 / 84px
-      84px,
-    linear-gradient(90deg, rgba(17, 17, 17, 0.035) 1px, transparent 1px) 0 0 /
-      84px 84px,
-    var(--page-bg) !important;
-}
-
 /* Light theme: grid background for Resource Vault page */
 :root:not([data-theme="dark"]) .vault-page {
   background:
@@ -20372,7 +20354,6 @@ body.page-home .fs-cursor {
   }
 }
 
-
 /* PORTRAIT IMAGE FIX - keep natural ratio, stop overlap/stretch */
 .page-home .portrait-frame {
   display: flex !important;
@@ -20437,7 +20418,6 @@ body.page-home .fs-cursor {
   }
 }
 
-
 /* PHONE SAFE CREATIVE TITLE TAP FIX */
 .creative-title-word {
   cursor: pointer;
@@ -20450,8 +20430,7 @@ body.page-home .fs-cursor {
 
 @media (hover: none) {
   .creative-title-word:hover .creative-title-letter {
-    transform:
-      translateY(calc(var(--elastic-y, 0) * 1px))
+    transform: translateY(calc(var(--elastic-y, 0) * 1px))
       rotate(calc(var(--elastic-rotate, 0) * 1deg)) !important;
   }
 

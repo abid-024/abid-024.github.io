@@ -20491,7 +20491,7 @@ body.page-home .fs-cursor {
 /* === MAIN INDEX UNIQUE SECTION EFFECTS START === */
 
 /* =========================================================
-   SECTION 1: HERO / FIRST SECTION
+   HERO / FIRST SECTION
    Pixel block cursor trail
 ========================================================= */
 .hero-pixel-fx {
@@ -20523,8 +20523,8 @@ body.page-home .fs-cursor {
 }
 
 /* =========================================================
-   SECTION 2: ABOUT / SECOND SECTION
-   Skeleton / bone follower
+   ABOUT / SECOND SECTION
+   Skeleton follower
 ========================================================= */
 .about-bone-fx {
   position: fixed;
@@ -20565,7 +20565,7 @@ html[data-theme="dark"] .about-bone-fx {
 }
 
 /* =========================================================
-   SECTION 3: SERVICE SECTION
+   SERVICE SECTION
    Magic spark particles
 ========================================================= */
 .service-magic-fx {
@@ -20605,8 +20605,8 @@ html[data-theme="dark"] .about-bone-fx {
 }
 
 /* =========================================================
-   AFTER SERVICE SECTION
-   Smoke / dhua for Resource Vault, Language Row, Footer
+   AFTER SERVICE AREA
+   Smoke / dhua
 ========================================================= */
 .site-smoke-cursor-fx {
   position: fixed;
@@ -20669,9 +20669,6 @@ html[data-theme="dark"] .site-smoke-cursor-fx {
   }
 }
 
-/* =========================================================
-   Disable on phone / reduced motion
-========================================================= */
 @media (max-width: 768px), (prefers-reduced-motion: reduce) {
   .hero-pixel-fx,
   .about-bone-fx,
@@ -20682,3 +20679,4 @@ html[data-theme="dark"] .site-smoke-cursor-fx {
 }
 
 /* === MAIN INDEX UNIQUE SECTION EFFECTS END === */
+

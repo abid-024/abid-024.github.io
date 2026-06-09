@@ -933,7 +933,7 @@ html:has(body.dark)::after {
     top: auto;
     right: -68px;
     bottom: -05px;
-    width: min(92vw, 445px);
+    width: min(102vw, 505px);
     opacity: 0.095;
   }
 

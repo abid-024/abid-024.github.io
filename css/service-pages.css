@@ -8979,6 +8979,20 @@ body.local-seo-body .service-footer-bottom {
     font-size: 0.88rem !important;
   }
 }
+.service-footer-qr {
+  padding: 6px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.95);
+  overflow: hidden;
+  text-decoration: none;
+}
+.service-footer-qr img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+}
 :root {
   --dark: #1a1517;
   --dark-2: #241d20;

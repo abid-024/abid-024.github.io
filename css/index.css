@@ -20440,3 +20440,39 @@ body.page-home .fs-cursor {
       color 200ms ease !important;
   }
 }
+
+
+/* Hero-only cursor pixel trail */
+.hero-cursor-trail-block {
+  position: fixed;
+  z-index: 99999;
+  width: 30px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  font-family: monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: #111;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: heroCursorTrailPop 650ms ease-out forwards;
+}
+
+@keyframes heroCursorTrailPop {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -90%) scale(0.65);
+  }
+}
+
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .hero-cursor-trail-block {
+    display: none;
+  }
+}

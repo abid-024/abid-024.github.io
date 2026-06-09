@@ -945,12 +945,10 @@ function revealEverythingFastFinalPatch() {
 
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", () => {
-    setupCursorModesFinalPatch();
     setupImageProtectionFinalPatch();
     revealEverythingFastFinalPatch();
   });
 } else {
-  setupCursorModesFinalPatch();
   setupImageProtectionFinalPatch();
   revealEverythingFastFinalPatch();
 }

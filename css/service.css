@@ -515,7 +515,7 @@ html:not([data-theme="dark"]) .service-hub-brand img {
 }
 
 .service-hub-card-link::after {
-  content: "鈥?;
+  content: "→";
   font-size: 1.6rem;
   line-height: 0;
 }
@@ -767,4 +767,5 @@ html:not([data-theme="dark"]) .service-hub-brand img {
     animation: none !important;
   }
 }
+
 

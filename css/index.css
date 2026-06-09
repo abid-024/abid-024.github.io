@@ -20487,3 +20487,198 @@ body.page-home .fs-cursor {
     display: none;
   }
 }
+
+/* === MAIN INDEX UNIQUE SECTION EFFECTS START === */
+
+/* =========================================================
+   SECTION 1: HERO / FIRST SECTION
+   Pixel block cursor trail
+========================================================= */
+.hero-pixel-fx {
+  position: fixed;
+  z-index: 99999;
+  width: 28px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  font-family: monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  animation: heroPixelFx 680ms ease-out forwards;
+}
+
+@keyframes heroPixelFx {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -86%) scale(0.62);
+  }
+}
+
+/* =========================================================
+   SECTION 2: ABOUT / SECOND SECTION
+   Skeleton / bone follower
+========================================================= */
+.about-bone-fx {
+  position: fixed;
+  z-index: 99999;
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(18, 18, 18, 0.9);
+  color: rgba(18, 18, 18, 0.9);
+  pointer-events: none;
+  transform-origin: 3px 50%;
+  transition: opacity 140ms ease;
+}
+
+.about-bone-fx::before,
+.about-bone-fx::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  transform: translateY(-50%);
+}
+
+.about-bone-fx::before {
+  left: -2px;
+}
+
+.about-bone-fx::after {
+  right: -2px;
+}
+
+html[data-theme="dark"] .about-bone-fx {
+  background: rgba(255, 244, 223, 0.92);
+  color: rgba(255, 244, 223, 0.92);
+}
+
+/* =========================================================
+   SECTION 3: SERVICE SECTION
+   Magic spark particles
+========================================================= */
+.service-magic-fx {
+  position: fixed;
+  z-index: 99999;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow:
+    0 0 10px var(--spark-color, currentColor),
+    0 0 22px var(--spark-color, currentColor);
+  animation: serviceMagicFx 950ms ease-out forwards;
+}
+
+.service-magic-fx::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 999px;
+  background: inherit;
+  filter: blur(6px);
+  opacity: 0.55;
+}
+
+@keyframes serviceMagicFx {
+  0% {
+    opacity: 0.95;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-50% + var(--spark-x, 0px)),
+      calc(-50% + var(--spark-y, -20px))
+    ) scale(0.12);
+  }
+}
+
+/* =========================================================
+   AFTER SERVICE SECTION
+   Smoke / dhua for Resource Vault, Language Row, Footer
+========================================================= */
+.site-smoke-cursor-fx {
+  position: fixed;
+  z-index: 99999;
+  border-radius: 999px;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(255, 255, 255, 0.30) 0%,
+      rgba(255, 255, 255, 0.15) 30%,
+      rgba(255, 255, 255, 0.07) 54%,
+      transparent 76%
+    );
+  filter: blur(8px);
+  transform: translate(-50%, -50%);
+  animation: siteSmokeCursorFx 1300ms ease-out forwards;
+  mix-blend-mode: screen;
+}
+
+html[data-theme="dark"] .site-smoke-cursor-fx {
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(255, 244, 223, 0.26) 0%,
+      rgba(255, 244, 223, 0.13) 32%,
+      rgba(255, 244, 223, 0.06) 56%,
+      transparent 78%
+    );
+}
+
+:root:not([data-theme="dark"]) .site-smoke-cursor-fx {
+  background:
+    radial-gradient(
+      circle at 35% 35%,
+      rgba(18, 18, 18, 0.13) 0%,
+      rgba(18, 18, 18, 0.075) 34%,
+      rgba(18, 18, 18, 0.038) 58%,
+      transparent 78%
+    );
+  mix-blend-mode: multiply;
+}
+
+@keyframes siteSmokeCursorFx {
+  0% {
+    opacity: 0.56;
+    transform: translate(-50%, -50%) scale(0.45) rotate(0deg);
+  }
+
+  55% {
+    opacity: 0.28;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(
+      calc(-50% + var(--smoke-x, 0px)),
+      calc(-50% + var(--smoke-y, -18px))
+    ) scale(1.65) rotate(var(--smoke-rotate, 0deg));
+  }
+}
+
+/* =========================================================
+   Disable on phone / reduced motion
+========================================================= */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+  .hero-pixel-fx,
+  .about-bone-fx,
+  .service-magic-fx,
+  .site-smoke-cursor-fx {
+    display: none;
+  }
+}
+
+/* === MAIN INDEX UNIQUE SECTION EFFECTS END === */

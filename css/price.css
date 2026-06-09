@@ -812,7 +812,7 @@ html:not([data-theme="dark"]) .pricing-pay-brand img {
 
 .price-card a::after,
 .pricing-pay-card a::after {
-  content: "鈥?;
+  content: "→";
   font-size: 1.4rem;
   line-height: 0;
 }
@@ -1339,4 +1339,5 @@ html[data-theme="dark"] .pricing-pay-clarity-card .pricing-pay-kicker {
     transition: none !important;
   }
 }
+
 

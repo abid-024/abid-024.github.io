@@ -5510,7 +5510,11 @@ main#home > .carousel-section {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 12px;
+  margin-top: 0;
+}
+
+.service-footer-bottom .service-footer-socials {
+  align-items: center;
 }
 .service-footer-socials a {
   display: inline-grid;

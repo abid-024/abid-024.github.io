@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html data-theme="light" lang="en">
   <head>
@@ -41,8 +41,7 @@
     />
     <link as="style" href="../css/contact.css" rel="preload" />
     <link href="../css/contact.css" rel="stylesheet" />
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <meta content="strict-origin-when-cross-origin" name="referrer" />
+<meta content="strict-origin-when-cross-origin" name="referrer" />
     <meta
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
       http-equiv="Content-Security-Policy"
@@ -73,7 +72,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body class="contact-page page-contact">
     <header aria-label="Contact page navigation" class="contact-nav">
       <a aria-label="Back to portfolio home" class="contact-brand" href="#top">
@@ -94,14 +94,16 @@
         <a href="#links">Links</a>
       </nav>
       <button
-        aria-label="Switch color theme"
-        aria-pressed="false"
-        class="theme-toggle contact-theme-toggle"
-        data-theme-toggle=""
-        type="button"
-      >
-        <span aria-hidden="true" class="theme-toggle-icon"></span>
-      </button>
+          aria-label="Switch color theme"
+          aria-pressed="false"
+          class="fs-theme-toggle"
+          data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
+        </button>
     </header>
     <main class="contact-shell">
       <section class="contact-left-card">
@@ -641,3 +643,4 @@
     <script defer="" src="../js/theme.js"></script>
   </body>
 </html>
+

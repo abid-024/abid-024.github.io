@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html data-theme="light" lang="en">
   <head>
@@ -453,8 +453,7 @@
         }
       }
     </style>
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <link href="../css/feature-project.css" rel="stylesheet" />
+<link href="../css/feature-project.css" rel="stylesheet" />
     <meta
       content="A featured automation project showing workflow thinking, lead flow, routing logic, and system structure."
       name="description"
@@ -513,7 +512,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body>
     <header class="nav-wrap">
       <nav class="nav container">
@@ -535,13 +535,16 @@
         <div class="nav-actions">
           <a class="back-link" href="../feature-project/">Back to Projects</a>
           <button
-            aria-label="Change theme"
-            aria-pressed="false"
-            class="theme-toggle"
-            id="themeToggle"
-          >
-            <span aria-hidden="true" class="theme-toggle-icon"></span>
-          </button>
+          aria-label="Switch color theme"
+          aria-pressed="false"
+          class="fs-theme-toggle"
+          data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
+        </button>
         </div>
       </nav>
     </header>
@@ -674,3 +677,4 @@
     <script defer="" src="../js/project-global.js"></script>
   </body>
 </html>
+

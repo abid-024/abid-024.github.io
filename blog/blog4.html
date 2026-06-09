@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html data-theme="light" lang="en">
   <head>
@@ -35,8 +35,7 @@
     />
     <link as="style" href="../css/blog.css" rel="preload" />
     <link href="../css/blog.css" rel="stylesheet" />
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <meta content="strict-origin-when-cross-origin" name="referrer" />
+<meta content="strict-origin-when-cross-origin" name="referrer" />
     <meta content="light dark" name="color-scheme" />
     <meta
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
@@ -69,7 +68,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body class="blog-article blog-article-4">
     <main class="page">
       <nav aria-label="Blog article navigation" class="nav blog-detail-nav">
@@ -94,16 +94,16 @@
         </div>
         <div class="nav-actions">
           <button
-            aria-label="Change theme"
-            aria-pressed="false"
-            class="theme-toggle"
-            data-blog-theme-toggle=""
-            data-theme-toggle=""
-            id="themeToggle"
-            type="button"
-          >
-            <span aria-hidden="true" class="theme-toggle-icon"></span>
-          </button>
+          aria-label="Switch color theme"
+          aria-pressed="false"
+          class="fs-theme-toggle"
+          data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
+        </button>
           <a class="nav-btn" href="../contact/">Start Project</a>
         </div>
       </nav>
@@ -317,3 +317,4 @@
     <script defer="" src="../js/theme.js"></script>
   </body>
 </html>
+

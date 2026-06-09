@@ -33,8 +33,7 @@
     />
     <link as="style" href="../css/featured-project.css" rel="preload" />
     <link href="../css/featured-project.css" rel="stylesheet" />
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <meta content="strict-origin-when-cross-origin" name="referrer" />
+<meta content="strict-origin-when-cross-origin" name="referrer" />
     <meta content="light dark" name="color-scheme" />
     <meta
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
@@ -67,7 +66,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body class="project-vault-page">
     <main class="project-vault" id="project-vault">
       <div class="float-orb one"></div>
@@ -76,11 +76,13 @@
         <button
           aria-label="Switch color theme"
           aria-pressed="false"
-          class="theme-toggle project-theme-toggle vault-card-toggle"
+          class="fs-theme-toggle"
           data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
           type="button"
         >
-          <span aria-hidden="true" class="theme-toggle-icon"></span>
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
         </button>
         <div class="vault-inner">
           <div class="vault-brandline">
@@ -193,3 +195,4 @@
     <script defer="" src="../js/featured-project.js"></script>
   </body>
 </html>
+

@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html data-theme="light" lang="en">
   <head>
@@ -67,8 +67,7 @@
     </script>
     <link as="style" href="../css/service-pages.css" rel="preload" />
     <link href="../css/service-pages.css" rel="stylesheet" />
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <meta content="strict-origin-when-cross-origin" name="referrer" />
+<meta content="strict-origin-when-cross-origin" name="referrer" />
     <meta
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
       http-equiv="Content-Security-Policy"
@@ -99,7 +98,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body class="cyber-page-body page-cyber service-detail-page">
     <header aria-label="Cyber networking page navigation" class="cyber-nav">
       <a aria-label="Go to homepage" class="cyber-brand" href="#top">
@@ -123,14 +123,16 @@
         <a href="../contact/">Contact</a>
       </nav>
       <button
-        aria-label="Switch color theme"
-        aria-pressed="false"
-        class="theme-toggle page-theme-toggle"
-        data-theme-toggle=""
-        type="button"
-      >
-        <span aria-hidden="true" class="theme-toggle-icon"></span>
-      </button>
+          aria-label="Switch color theme"
+          aria-pressed="false"
+          class="fs-theme-toggle"
+          data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
+        </button>
     </header>
     <main class="cyber-shell" id="top">
       <section class="cyber-hero">
@@ -465,3 +467,4 @@
     <script defer="" src="../js/theme.js"></script>
   </body>
 </html>
+

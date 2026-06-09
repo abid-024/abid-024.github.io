@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 
 <html data-theme="light" lang="en">
   <head>
@@ -63,8 +63,7 @@
     </script>
     <link as="style" href="../css/blog.css" rel="preload" />
     <link href="../css/blog.css" rel="stylesheet" />
-    <link href="../css/global-nav.css" rel="stylesheet" />
-    <meta content="strict-origin-when-cross-origin" name="referrer" />
+<meta content="strict-origin-when-cross-origin" name="referrer" />
     <meta
       content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self' https://api.web3forms.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
       http-equiv="Content-Security-Policy"
@@ -95,7 +94,8 @@
       content="https://abid-root.github.io/assets/icon/og-cover-final.jpg"
     />
     <meta name="twitter:image:alt" content="Abid's Creative World preview" />
-  </head>
+    <link href="../css/global-nav.css" rel="stylesheet" />
+</head>
   <body class="blog-page">
     <a class="skip-link" href="#posts">Skip to posts</a>
     <header aria-label="Blog navigation" class="blog-nav">
@@ -121,14 +121,16 @@
         <a href="../contact/">Contact</a>
       </nav>
       <button
-        aria-label="Toggle theme"
-        class="blog-theme-toggle"
-        data-blog-theme-toggle=""
-        data-theme-toggle=""
-        type="button"
-      >
-        <span aria-hidden="true" class="theme-toggle-icon"></span>
-      </button>
+          aria-label="Switch color theme"
+          aria-pressed="false"
+          class="fs-theme-toggle"
+          data-theme-toggle=""
+          data-blog-theme-toggle=""
+          id="themeToggle"
+          type="button"
+        >
+          <span aria-hidden="true" class="fs-toggle-mark"></span>
+        </button>
     </header>
     <main>
       <section class="blog-hero page-shell" id="top">
@@ -189,7 +191,7 @@
               feel intentional.
             </p>
             <a aria-label="Read article about simple websites" href="blog1.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -224,7 +226,7 @@
               robotic.
             </p>
             <a aria-label="Read article about automation" href="blog2.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -261,7 +263,7 @@
             <a
               aria-label="Read article about local visibility"
               href="blog3.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -298,7 +300,7 @@
             <a
               aria-label="Read article about cybersecurity basics"
               href="blog4.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -334,7 +336,7 @@
             <a
               aria-label="Read article about portfolio thinking"
               href="blog5.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -371,7 +373,7 @@
             <a
               aria-label="Read article about small code decisions"
               href="blog6.html"
-              >Read Article <span aria-hidden="true">→</span></a
+              >Read Article <span aria-hidden="true">鈫?/span></a
             >
           </div>
           <figure class="post-media">
@@ -472,3 +474,4 @@
     <script defer="" src="../js/theme.js"></script>
   </body>
 </html>
+

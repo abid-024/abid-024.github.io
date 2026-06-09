@@ -1843,3 +1843,119 @@ body.dark [data-theme-toggle] .theme-toggle-icon::after,
 body.dark .theme-icon::after {
   display: block !important;
 }
+
+/* === SITE-WIDE FINAL FS TOGGLE START === */
+/* Final look: small black sun in light mode, simple cream moon in dark mode */
+html body button.fs-theme-toggle {
+  all: unset !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 28px !important;
+  height: 28px !important;
+  min-width: 28px !important;
+  min-height: 28px !important;
+  flex: 0 0 28px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: 0 !important;
+  color: #111111 !important;
+  cursor: pointer !important;
+  overflow: visible !important;
+  line-height: 1 !important;
+  transform: none !important;
+  filter: none !important;
+}
+
+html[data-theme="dark"] body button.fs-theme-toggle,
+html body.dark button.fs-theme-toggle {
+  color: #fff4df !important;
+}
+
+html body button.fs-theme-toggle::before,
+html body button.fs-theme-toggle::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body button.fs-theme-toggle .fs-toggle-mark {
+  position: relative !important;
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: currentColor !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+  transform: none !important;
+}
+
+/* Light theme sun rays */
+html body button.fs-theme-toggle .fs-toggle-mark::before {
+  content: "" !important;
+  position: absolute !important;
+  inset: -5px !important;
+  border-radius: 50% !important;
+  background: repeating-conic-gradient(
+    currentColor 0deg 12deg,
+    transparent 12deg 45deg
+  ) !important;
+  -webkit-mask: radial-gradient(
+    circle,
+    transparent 0 7px,
+    #000 7px 9px,
+    transparent 9px
+  ) !important;
+  mask: radial-gradient(
+    circle,
+    transparent 0 7px,
+    #000 7px 9px,
+    transparent 9px
+  ) !important;
+}
+
+html body button.fs-theme-toggle .fs-toggle-mark::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Dark theme moon */
+html[data-theme="dark"] body button.fs-theme-toggle .fs-toggle-mark,
+html body.dark button.fs-theme-toggle .fs-toggle-mark {
+  width: 17px !important;
+  height: 17px !important;
+  border-radius: 50% !important;
+  background: transparent !important;
+  box-shadow: -5px 4px 0 0 currentColor !important;
+  transform: translate(4px, -3px) rotate(-8deg) !important;
+  overflow: visible !important;
+}
+
+html[data-theme="dark"] body button.fs-theme-toggle .fs-toggle-mark::before,
+html body.dark button.fs-theme-toggle .fs-toggle-mark::before,
+html[data-theme="dark"] body button.fs-theme-toggle .fs-toggle-mark::after,
+html body.dark button.fs-theme-toggle .fs-toggle-mark::after {
+  content: none !important;
+  display: none !important;
+}
+
+html body button.fs-theme-toggle:hover {
+  transform: scale(1.06) !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+html body button.fs-theme-toggle:focus-visible {
+  outline: 2px solid currentColor !important;
+  outline-offset: 4px !important;
+}
+/* === SITE-WIDE FINAL FS TOGGLE END === */
+
+

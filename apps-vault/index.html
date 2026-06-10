@@ -6,22 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="description" content="FlowSync Essentials is an apps vault of lightweight browser tools including QR Generator, Image Compressor, Image Converter, and other daily utility apps.">
+  <meta name="description" content="FlowSync Essentials is an apps vault of lightweight browser tools including QR Generator, Image Compressor, Image Converter, and other utility tools.">
   <meta name="theme-color" content="#1f1d33">
 
   <title>FlowSync Essentials | Apps Vault by Abid Hasan</title>
   <link rel="canonical" href="https://abid-root.github.io/apps-vault/">
+
+  <link rel="icon" type="image/png" href="../assets/icon/coldboot-black.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" href="../assets/icon/coldboot-white.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" href="../assets/icon/coldboot-black.png">
+
+  <link rel="stylesheet" href="../css/global-nav.css">
   <link rel="stylesheet" href="../css/apps-vault.css">
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="FlowSync Essentials">
   <meta property="og:description" content="A clean apps vault of lightweight browser tools by Abid Hasan.">
   <meta property="og:url" content="https://abid-root.github.io/apps-vault/">
-  <meta property="og:image" content="https://abid-root.github.io/assets/icon/qr.png">
+  <meta property="og:image" content="https://abid-root.github.io/assets/icon/og-cover-final.png">
 
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="FlowSync Essentials">
   <meta name="twitter:description" content="Lightweight browser tools in one apps vault.">
+  <meta name="twitter:image" content="https://abid-root.github.io/assets/icon/og-cover-final.png">
 
   <script type="application/ld+json">
   {
@@ -58,27 +65,27 @@
   </script>
 </head>
 
-<body>
-  <header class="apps-vault-nav">
-    <a class="apps-vault-brand" href="../" aria-label="Go to homepage">
-      <span class="apps-vault-logo"><img src="../assets/icon/flowsync-logo.jpg" alt="FlowSync logo" width="34" height="34"></span>
-      <span class="apps-vault-brand-text">
+<body class="vault-page apps-vault-page">
+  <header class="vault-project-nav">
+    <a class="project-global-brand" href="../" aria-label="Go to homepage">
+      <img src="../assets/icon/brand-logo.webp" alt="FlowSync logo" width="1024" height="1024" decoding="async">
+      <span>
         <strong>FlowSync</strong>
         <small>essentials</small>
       </span>
     </a>
 
-    <nav class="apps-vault-links" aria-label="Apps vault navigation">
+    <nav aria-label="Apps vault navigation">
       <a href="../">Home</a>
       <a href="../contact/">Contact</a>
-      <button class="apps-vault-theme" type="button" aria-label="Toggle color theme" data-theme-toggle>
-        <span class="theme-sun" aria-hidden="true">☀</span>
-        <span class="theme-moon" aria-hidden="true">☾</span>
-      </button>
     </nav>
+
+    <button class="theme-toggle" type="button" aria-label="Switch color theme" aria-pressed="false" data-theme-toggle id="themeToggle">
+      <span class="theme-toggle-icon" aria-hidden="true"></span>
+    </button>
   </header>
 
-  <main>
+  <main class="apps-vault-main">
     <section class="apps-vault-hero" aria-labelledby="apps-vault-title">
       <p class="apps-vault-kicker">FlowSync essentials</p>
       <h1 id="apps-vault-title">Apps Vault</h1>
@@ -150,16 +157,27 @@
 
   <script>
     const root = document.documentElement;
-    const savedTheme = localStorage.getItem("coldboot-theme");
+    const themeToggle = document.querySelector("[data-theme-toggle]");
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
 
-    if (savedTheme === "light" || savedTheme === "dark") {
-      root.setAttribute("data-theme", savedTheme);
-    }
-
-    document.querySelector("[data-theme-toggle]")?.addEventListener("click", () => {
-      const nextTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    function setTheme(theme) {
+      const nextTheme = theme === "light" ? "light" : "dark";
       root.setAttribute("data-theme", nextTheme);
       localStorage.setItem("coldboot-theme", nextTheme);
+
+      if (themeToggle) {
+        themeToggle.setAttribute("aria-pressed", nextTheme === "dark" ? "true" : "false");
+      }
+
+      if (themeMeta) {
+        themeMeta.setAttribute("content", nextTheme === "dark" ? "#1f1d33" : "#faf8f1");
+      }
+    }
+
+    setTheme(localStorage.getItem("coldboot-theme") === "light" ? "light" : "dark");
+
+    themeToggle?.addEventListener("click", () => {
+      setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
     });
   </script>
 </body>

@@ -6,8 +6,8 @@
   --line: rgba(22, 22, 28, 0.12);
   --text: #15151b;
   --muted: rgba(21, 21, 27, 0.62);
-  --accent: #b9ff34;
-  --accent-dark: #6c9900;
+  --accent: #7ce6af;
+  --accent-soft: rgba(124, 230, 175, 0.34);
   --shadow: rgba(26, 24, 38, 0.13);
 }
 
@@ -19,7 +19,6 @@
   --line: rgba(255, 255, 255, 0.13);
   --text: #f7f2ea;
   --muted: rgba(247, 242, 234, 0.66);
-  --accent-dark: #b9ff34;
   --shadow: rgba(0, 0, 0, 0.26);
 }
 
@@ -31,188 +30,57 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+body.apps-vault-page {
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background:
-    radial-gradient(circle at 16% 12%, rgba(185, 255, 52, 0.12), transparent 24%),
-    radial-gradient(circle at 86% 82%, rgba(255, 255, 255, 0.12), transparent 28%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-:root[data-theme="dark"] body {
-  background:
-    radial-gradient(circle at 18% 14%, rgba(185, 255, 52, 0.1), transparent 26%),
-    radial-gradient(circle at 84% 78%, rgba(255, 255, 255, 0.08), transparent 30%),
-    linear-gradient(135deg, #211f35, #171626);
+/* use same global color system for nav underline/toggle glow */
+body.apps-vault-page {
+  --fs-nav-accent: var(--accent);
+  --fs-nav-accent-soft: var(--accent-soft);
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(22, 22, 28, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(22, 22, 28, 0.045) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(circle at 50% 34%, #000 0 52%, transparent 92%);
-}
-
-:root[data-theme="dark"] body::before {
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button {
-  font: inherit;
-}
-
-.apps-vault-nav {
-  display: flex;
-  width: min(1120px, calc(100% - 32px));
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  margin: 0 auto;
-  padding: 22px 0;
-}
-
-.apps-vault-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.apps-vault-logo {
-  display: grid;
-  width: 38px;
-  height: 38px;
-  place-items: center;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: var(--panel-strong);
-  color: var(--accent-dark);
-  font-weight: 950;
-}
-
-.apps-vault-logo img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.apps-vault-brand-text {
-  display: grid;
-  gap: 2px;
-}
-
-.apps-vault-brand-text strong {
-  font-size: 0.96rem;
-  font-weight: 950;
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
-
-.apps-vault-brand-text small {
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 900;
-  letter-spacing: 0.18em;
-  line-height: 1;
-  text-transform: uppercase;
-}
-
-.apps-vault-links {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.apps-vault-links a {
-  color: var(--muted);
-  font-size: 0.88rem;
-  font-weight: 850;
-}
-
-.apps-vault-links a:hover {
-  color: var(--text);
-}
-
-.apps-vault-theme {
-  position: relative;
-  display: inline-grid;
-  width: 34px;
-  height: 34px;
-  place-items: center;
-  border: 0;
-  background: transparent;
-  color: var(--text);
-  cursor: pointer;
-}
-
-.apps-vault-theme span {
-  position: absolute;
-  font-size: 1rem;
-  line-height: 1;
-  transition: opacity 160ms ease, transform 160ms ease;
-}
-
-:root[data-theme="dark"] .theme-sun {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
-}
-
-:root[data-theme="dark"] .theme-moon {
-  opacity: 0;
-  transform: scale(0.6) rotate(-20deg);
-}
-
-:root:not([data-theme="dark"]) .theme-sun {
-  opacity: 0;
-  transform: scale(0.6) rotate(20deg);
-}
-
-:root:not([data-theme="dark"]) .theme-moon {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+/* page only, nav/watermark/toggle comes from global-nav.css */
+.apps-vault-main {
+  width: 100%;
 }
 
 .apps-vault-hero {
   width: min(940px, calc(100% - 32px));
-  margin: 36px auto 30px;
+  margin: clamp(32px, 5vw, 58px) auto 30px;
   text-align: center;
 }
 
 .apps-vault-kicker {
   display: inline-flex;
-  border: 1px solid rgba(185, 255, 52, 0.34);
+  border: 1px solid rgba(124, 230, 175, 0.34);
   border-radius: 999px;
-  background: rgba(185, 255, 52, 0.12);
+  background: rgba(124, 230, 175, 0.12);
   padding: 8px 14px;
-  color: var(--accent-dark);
+  color: #228856;
   font-size: 0.72rem;
   font-weight: 950;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
+:root[data-theme="dark"] .apps-vault-kicker {
+  color: var(--accent);
+}
+
 .apps-vault-hero h1 {
   margin: 18px 0 10px;
+  color: var(--text);
   font-size: clamp(3rem, 8vw, 6.6rem);
   font-weight: 950;
   letter-spacing: -0.08em;
   line-height: 0.86;
+  text-wrap: balance;
 }
 
 .apps-vault-hero p {
@@ -227,11 +95,13 @@ button {
 .apps-vault-shell {
   width: min(1120px, calc(100% - 32px));
   margin: 0 auto 56px;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 28px;
   background: linear-gradient(135deg, var(--panel-strong), var(--panel));
   box-shadow: 0 26px 70px var(--shadow);
   padding: clamp(18px, 4vw, 34px);
+  backdrop-filter: blur(18px);
 }
 
 .apps-vault-grid {
@@ -241,11 +111,15 @@ button {
 }
 
 .apps-vault-card {
+  position: relative;
+  isolation: isolate;
   overflow: hidden;
   min-height: 300px;
   border: 1px solid var(--line);
   border-radius: 22px;
   background: var(--panel);
+  color: inherit;
+  text-decoration: none;
   transition:
     transform 180ms ease,
     border-color 180ms ease,
@@ -253,12 +127,29 @@ button {
     box-shadow 180ms ease;
 }
 
+.apps-vault-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(124, 230, 175, 0.12), transparent 34%),
+    radial-gradient(circle at 88% 88%, rgba(255, 255, 255, 0.08), transparent 36%);
+  opacity: 0;
+  transition: opacity 180ms ease;
+}
+
 .apps-vault-card:hover,
 .apps-vault-card:focus-visible {
-  border-color: rgba(185, 255, 52, 0.5);
+  border-color: rgba(124, 230, 175, 0.5);
   background: var(--panel-strong);
   box-shadow: 0 22px 48px var(--shadow);
   transform: translateY(-8px);
+}
+
+.apps-vault-card:hover::before,
+.apps-vault-card:focus-visible::before {
+  opacity: 1;
 }
 
 .apps-vault-card img,
@@ -269,6 +160,7 @@ button {
   place-items: center;
   object-fit: contain;
   background: #f5f5f2;
+  border-bottom: 1px solid rgba(16, 16, 20, 0.06);
   padding: 24px;
 }
 
@@ -288,14 +180,19 @@ button {
   display: inline-flex;
   margin-bottom: 10px;
   border-radius: 999px;
-  background: rgba(185, 255, 52, 0.18);
+  background: rgba(124, 230, 175, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(124, 230, 175, 0.18);
   padding: 5px 9px;
-  color: var(--accent-dark);
+  color: #228856;
   font-size: 0.68rem;
   font-style: normal;
   font-weight: 950;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+:root[data-theme="dark"] .apps-vault-card small {
+  color: var(--accent);
 }
 
 .apps-vault-card strong {
@@ -333,26 +230,52 @@ button {
 }
 
 @media (max-width: 560px) {
-  .apps-vault-nav {
-    align-items: flex-start;
-    flex-direction: column;
+  .apps-vault-hero {
+    width: min(100% - 24px, 940px);
+    margin: 28px auto 22px;
   }
 
-  .apps-vault-links {
-    width: 100%;
-    justify-content: space-between;
+  .apps-vault-hero h1 {
+    font-size: clamp(3.1rem, 18vw, 4.6rem);
+  }
+
+  .apps-vault-hero p {
+    font-size: 0.92rem;
+    line-height: 1.58;
+  }
+
+  .apps-vault-shell {
+    width: min(100% - 24px, 1120px);
+    border-radius: 22px;
+    padding: 14px;
   }
 
   .apps-vault-grid {
     grid-template-columns: 1fr;
+    gap: 14px;
   }
 
   .apps-vault-card {
     min-height: auto;
+    border-radius: 18px;
   }
 
-  .apps-vault-hero h1 {
-    font-size: clamp(3rem, 18vw, 4.4rem);
+  .apps-vault-card img,
+  .apps-vault-placeholder {
+    height: 138px;
+    padding: 20px;
+  }
+
+  .apps-vault-card span:not(.apps-vault-placeholder) {
+    padding: 16px;
+  }
+
+  .apps-vault-card strong {
+    font-size: 1.06rem;
+  }
+
+  .apps-vault-card em {
+    font-size: 0.84rem;
   }
 }
 

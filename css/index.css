@@ -20550,10 +20550,28 @@ body.page-home .fs-cursor {
   contain: layout paint;
 
   background:
-    radial-gradient(circle at 50% 50%, var(--bone) 0 2.8px, var(--bone-edge) 3px 3.6px, transparent 3.8px),
-    linear-gradient(90deg, transparent 0 37%, var(--bone) 38% 62%, transparent 63%),
-    radial-gradient(ellipse at 28% 50%, var(--bone-soft) 0 2.1px, transparent 2.4px),
-    radial-gradient(ellipse at 72% 50%, var(--bone-soft) 0 2.1px, transparent 2.4px);
+    radial-gradient(
+      circle at 50% 50%,
+      var(--bone) 0 2.8px,
+      var(--bone-edge) 3px 3.6px,
+      transparent 3.8px
+    ),
+    linear-gradient(
+      90deg,
+      transparent 0 37%,
+      var(--bone) 38% 62%,
+      transparent 63%
+    ),
+    radial-gradient(
+      ellipse at 28% 50%,
+      var(--bone-soft) 0 2.1px,
+      transparent 2.4px
+    ),
+    radial-gradient(
+      ellipse at 72% 50%,
+      var(--bone-soft) 0 2.1px,
+      transparent 2.4px
+    );
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
 }
 
@@ -20594,10 +20612,26 @@ body.page-home .fs-cursor {
   border-radius: 68% 42% 46% 62% / 58% 48% 52% 56%;
   border: 1px solid var(--bone-edge);
   background:
-    radial-gradient(circle at 68% 34%, var(--bone-eye) 0 2px, transparent 2.2px),
-    radial-gradient(circle at 68% 66%, var(--bone-eye) 0 2px, transparent 2.2px),
-    radial-gradient(ellipse at 82% 50%, var(--bone-cut) 0 2.5px, transparent 2.8px),
-    radial-gradient(ellipse at 38% 50%, rgba(255,255,255,0.18) 0 6px, transparent 6.5px),
+    radial-gradient(
+      circle at 68% 34%,
+      var(--bone-eye) 0 2px,
+      transparent 2.2px
+    ),
+    radial-gradient(
+      circle at 68% 66%,
+      var(--bone-eye) 0 2px,
+      transparent 2.2px
+    ),
+    radial-gradient(
+      ellipse at 82% 50%,
+      var(--bone-cut) 0 2.5px,
+      transparent 2.8px
+    ),
+    radial-gradient(
+      ellipse at 38% 50%,
+      rgba(255, 255, 255, 0.18) 0 6px,
+      transparent 6.5px
+    ),
     linear-gradient(90deg, var(--bone), var(--bone-soft));
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -20652,41 +20686,35 @@ body.page-home .fs-cursor {
 }
 /* =========================================================
    SERVICE / THIRD SECTION
-   Dollar spread hover effect
+   Dollar spread hover effect - optimized
 ========================================================= */
 .service-money-fx {
   position: fixed;
   z-index: 99999;
   pointer-events: none;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-weight: 800;
+  font-weight: 850;
   line-height: 1;
   color: #ffd76b;
-  text-shadow:
-    0 0 5px rgba(255, 215, 107, 0.55),
-    0 0 12px rgba(92, 242, 139, 0.22);
-  transform: translate(-50%, -50%) rotate(0deg) scale(0.7);
-  animation: serviceMoneySpreadFx 900ms ease-out forwards;
+  transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(0.7);
+  animation: serviceMoneySpreadFx 760ms ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  contain: layout paint;
 }
 
 .service-money-fx:nth-of-type(3n) {
   color: #5cf28b;
-  text-shadow:
-    0 0 5px rgba(92, 242, 139, 0.5),
-    0 0 12px rgba(84, 215, 255, 0.18);
 }
 
 .service-money-fx:nth-of-type(4n) {
   color: #fff4df;
-  text-shadow:
-    0 0 5px rgba(255, 244, 223, 0.42),
-    0 0 12px rgba(255, 215, 107, 0.18);
 }
 
 @keyframes serviceMoneySpreadFx {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(0deg) scale(0.45);
+    transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(0.45);
   }
 
   18% {
@@ -20695,31 +20723,33 @@ body.page-home .fs-cursor {
 
   100% {
     opacity: 0;
-    transform:
-      translate(
+    transform: translate3d(
         calc(-50% + var(--money-x, 0px)),
-        calc(-50% + var(--money-y, -30px))
+        calc(-50% + var(--money-y, -30px)),
+        0
       )
-      rotate(var(--money-rotate, 0deg))
-      scale(1.08);
+      rotate(var(--money-rotate, 0deg)) scale(1.02);
   }
 }
 
 .service-money-bill-fx {
   position: fixed;
   z-index: 99998;
-  width: 30px;
-  height: 16px;
+  width: 28px;
+  height: 15px;
   border-radius: 4px;
   pointer-events: none;
-  background:
-    linear-gradient(135deg, rgba(92, 242, 139, 0.92), rgba(255, 215, 107, 0.82));
-  border: 1px solid rgba(255, 244, 223, 0.34);
-  box-shadow:
-    0 0 7px rgba(92, 242, 139, 0.26),
-    0 0 14px rgba(255, 215, 107, 0.16);
-  transform: translate(-50%, -50%) rotate(0deg) scale(0.65);
-  animation: serviceMoneyBillFx 920ms ease-out forwards;
+  background: linear-gradient(
+    135deg,
+    rgba(92, 242, 139, 0.9),
+    rgba(255, 215, 107, 0.82)
+  );
+  border: 1px solid rgba(255, 244, 223, 0.26);
+  transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(0.65);
+  animation: serviceMoneyBillFx 780ms ease-out forwards;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  contain: layout paint;
 }
 
 .service-money-bill-fx::before {
@@ -20737,7 +20767,7 @@ body.page-home .fs-cursor {
 @keyframes serviceMoneyBillFx {
   0% {
     opacity: 0;
-    transform: translate(-50%, -50%) rotate(0deg) scale(0.45);
+    transform: translate3d(-50%, -50%, 0) rotate(0deg) scale(0.45);
   }
 
   20% {
@@ -20746,13 +20776,12 @@ body.page-home .fs-cursor {
 
   100% {
     opacity: 0;
-    transform:
-      translate(
+    transform: translate3d(
         calc(-50% + var(--bill-x, 0px)),
-        calc(-50% + var(--bill-y, -30px))
+        calc(-50% + var(--bill-y, -30px)),
+        0
       )
-      rotate(var(--bill-rotate, 0deg))
-      scale(0.95);
+      rotate(var(--bill-rotate, 0deg)) scale(0.92);
   }
 }
 
@@ -20836,4 +20865,3 @@ html[data-theme="dark"] .site-smoke-cursor-fx {
 }
 
 /* === MAIN INDEX UNIQUE SECTION EFFECTS END === */
-

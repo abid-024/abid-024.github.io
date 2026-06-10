@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const isPhone = window.matchMedia("(max-width: 768px)").matches;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -148,60 +148,70 @@
 
   animateSnake();
 
-  /* =========================================================
-     SERVICE / THIRD SECTION
-     Dollar spread hover effect
-  ========================================================= */
-  const moneySymbols = ["$", "$", "$", "¢", "৳"];
-  let lastMoney = 0;
+/* =========================================================
+   SERVICE / THIRD SECTION
+   Dollar spread hover effect - optimized
+========================================================= */
+const moneySymbols = ["$", "$", "৳"];
+let lastMoney = 0;
+let moneyFxActive = 0;
+const maxMoneyFx = 22;
 
-  function createServiceMoney(event) {
-    const now = Date.now();
+function removeMoneyAfter(el, ms) {
+  moneyFxActive += 1;
 
-    if (now - lastMoney < 70) return;
-    lastMoney = now;
+  window.setTimeout(() => {
+    el.remove();
+    moneyFxActive = Math.max(0, moneyFxActive - 1);
+  }, ms);
+}
 
-    const count = 5 + Math.floor(Math.random() * 4);
+function createServiceMoney(event) {
+  const now = performance.now();
 
-    for (let i = 0; i < count; i += 1) {
-      const money = makeFx("service-money-fx");
+  if (now - lastMoney < 120 || moneyFxActive >= maxMoneyFx) return;
+  lastMoney = now;
 
-      const angle = Math.random() * Math.PI * 2;
-      const distance = 28 + Math.random() * 74;
+  const count = 2 + Math.floor(Math.random() * 2);
 
-      const dx = Math.cos(angle) * distance;
-      const dy = Math.sin(angle) * distance - Math.random() * 18;
+  for (let i = 0; i < count; i += 1) {
+    if (moneyFxActive >= maxMoneyFx) break;
 
-      const rotate = -35 + Math.random() * 70;
-      const size = 13 + Math.random() * 10;
+    const money = makeFx("service-money-fx");
 
-      money.textContent = moneySymbols[Math.floor(Math.random() * moneySymbols.length)];
-      money.style.left = `${event.clientX + (Math.random() - 0.5) * 10}px`;
-      money.style.top = `${event.clientY + (Math.random() - 0.5) * 10}px`;
-      money.style.fontSize = `${size}px`;
-      money.style.setProperty("--money-x", `${dx}px`);
-      money.style.setProperty("--money-y", `${dy}px`);
-      money.style.setProperty("--money-rotate", `${rotate}deg`);
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 26 + Math.random() * 58;
+    const dx = Math.cos(angle) * distance;
+    const dy = Math.sin(angle) * distance - Math.random() * 14;
+    const rotate = -28 + Math.random() * 56;
+    const size = 13 + Math.random() * 7;
 
-      removeAfter(money, 900);
-    }
+    money.textContent = moneySymbols[Math.floor(Math.random() * moneySymbols.length)];
+    money.style.left = `${event.clientX + (Math.random() - 0.5) * 8}px`;
+    money.style.top = `${event.clientY + (Math.random() - 0.5) * 8}px`;
+    money.style.fontSize = `${size}px`;
+    money.style.setProperty("--money-x", `${dx}px`);
+    money.style.setProperty("--money-y", `${dy}px`);
+    money.style.setProperty("--money-rotate", `${rotate}deg`);
 
-    if (Math.random() > 0.35) {
-      const bill = makeFx("service-money-bill-fx");
-
-      const angle = Math.random() * Math.PI * 2;
-      const distance = 24 + Math.random() * 54;
-
-      bill.style.left = `${event.clientX}px`;
-      bill.style.top = `${event.clientY}px`;
-      bill.style.setProperty("--bill-x", `${Math.cos(angle) * distance}px`);
-      bill.style.setProperty("--bill-y", `${Math.sin(angle) * distance - 16}px`);
-      bill.style.setProperty("--bill-rotate", `${-24 + Math.random() * 48}deg`);
-
-      removeAfter(bill, 920);
-    }
+    removeMoneyAfter(money, 760);
   }
 
+  if (moneyFxActive < maxMoneyFx && Math.random() > 0.72) {
+    const bill = makeFx("service-money-bill-fx");
+
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 24 + Math.random() * 42;
+
+    bill.style.left = `${event.clientX}px`;
+    bill.style.top = `${event.clientY}px`;
+    bill.style.setProperty("--bill-x", `${Math.cos(angle) * distance}px`);
+    bill.style.setProperty("--bill-y", `${Math.sin(angle) * distance - 14}px`);
+    bill.style.setProperty("--bill-rotate", `${-20 + Math.random() * 40}deg`);
+
+    removeMoneyAfter(bill, 780);
+  }
+}
   /* =========================================================
      AFTER SERVICE SECTION
      Smoke / dhua

@@ -20535,6 +20535,9 @@ body.page-home .fs-cursor {
   min-height: 4px;
   border-radius: 999px;
   pointer-events: none;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  contain: layout paint;
   transform-origin: 50% 50%;
   transition: opacity 140ms ease;
   background: linear-gradient(
@@ -20827,3 +20830,4 @@ html[data-theme="dark"] .site-smoke-cursor-fx {
 }
 
 /* === MAIN INDEX UNIQUE SECTION EFFECTS END === */
+

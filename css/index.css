@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --page-bg: #f5f3e5;
   --ink: #101010;
   --muted: #5f5f5d;
@@ -20524,126 +20524,132 @@ body.page-home .fs-cursor {
 
 /* =========================================================
    ABOUT / SECOND SECTION
-   Good snake follower
+   Bone snake follower
 ========================================================= */
 .about-good-snake-fx {
+  --bone: rgba(255, 244, 223, 0.96);
+  --bone-soft: rgba(255, 235, 198, 0.82);
+  --bone-edge: rgba(123, 96, 62, 0.46);
+  --bone-cut: rgba(30, 24, 20, 0.28);
+  --bone-eye: #17131f;
+
   position: fixed;
+  left: 0;
+  top: 0;
   z-index: 100030;
-  width: calc(23px - (var(--snake-i) * 0.55px));
-  height: calc(11px - (var(--snake-i) * 0.2px));
-  min-width: 7px;
-  min-height: 4px;
+  width: calc(24px - (var(--snake-i) * 0.52px));
+  height: calc(15px - (var(--snake-i) * 0.23px));
+  min-width: 8px;
+  min-height: 5px;
   border-radius: 999px;
   pointer-events: none;
+  transform-origin: 50% 50%;
+  transition: opacity 120ms ease;
   will-change: transform, opacity;
   backface-visibility: hidden;
   contain: layout paint;
-  transform-origin: 50% 50%;
-  transition: opacity 140ms ease;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 244, 223, 0.98),
-    rgba(255, 244, 223, 0.82)
-  );
-  box-shadow:
-    0 0 4px rgba(255, 244, 223, 0.24),
-    0 0 10px rgba(255, 244, 223, 0.08);
+
+  background:
+    radial-gradient(circle at 50% 50%, var(--bone) 0 2.8px, var(--bone-edge) 3px 3.6px, transparent 3.8px),
+    linear-gradient(90deg, transparent 0 37%, var(--bone) 38% 62%, transparent 63%),
+    radial-gradient(ellipse at 28% 50%, var(--bone-soft) 0 2.1px, transparent 2.4px),
+    radial-gradient(ellipse at 72% 50%, var(--bone-soft) 0 2.1px, transparent 2.4px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
 }
 
+.about-good-snake-fx::before,
 .about-good-snake-fx::after {
   content: "";
   position: absolute;
-  inset: 28%;
-  border-radius: inherit;
-  background: rgba(23, 19, 31, 0.22);
-  opacity: calc(0.38 - (var(--snake-i) * 0.012));
+  left: 50%;
+  width: calc(17px - (var(--snake-i) * 0.28px));
+  height: calc(9px - (var(--snake-i) * 0.12px));
+  min-width: 5px;
+  min-height: 3px;
+  border-radius: 999px;
+  opacity: calc(0.9 - (var(--snake-i) * 0.018));
 }
 
-/* head always on top */
+.about-good-snake-fx::before {
+  top: 47%;
+  border-top: 1.4px solid var(--bone);
+  border-left: 1px solid transparent;
+  transform: translate(-50%, -85%) rotate(-15deg);
+}
+
+.about-good-snake-fx::after {
+  top: 53%;
+  border-bottom: 1.4px solid var(--bone);
+  border-left: 1px solid transparent;
+  transform: translate(-50%, -15%) rotate(15deg);
+}
+
+/* skull head */
 .about-good-snake-fx.about-good-snake-head {
   z-index: 100060 !important;
-  width: 28px;
-  height: 14px;
-  min-width: 28px;
-  min-height: 14px;
-  border-radius: 70% 42% 42% 70%;
+  width: 31px;
+  height: 18px;
+  min-width: 31px;
+  min-height: 18px;
+  border-radius: 68% 42% 46% 62% / 58% 48% 52% 56%;
+  border: 1px solid var(--bone-edge);
   background:
-    radial-gradient(circle at 66% 32%, #17131f 0 1.6px, transparent 1.8px),
-    radial-gradient(circle at 66% 68%, #17131f 0 1.6px, transparent 1.8px),
-    linear-gradient(90deg, rgba(255, 244, 223, 0.99), rgba(255, 244, 223, 0.9));
-  box-shadow:
-    0 0 4px rgba(255, 244, 223, 0.26),
-    0 0 9px rgba(255, 244, 223, 0.08);
+    radial-gradient(circle at 68% 34%, var(--bone-eye) 0 2px, transparent 2.2px),
+    radial-gradient(circle at 68% 66%, var(--bone-eye) 0 2px, transparent 2.2px),
+    radial-gradient(ellipse at 82% 50%, var(--bone-cut) 0 2.5px, transparent 2.8px),
+    radial-gradient(ellipse at 38% 50%, rgba(255,255,255,0.18) 0 6px, transparent 6.5px),
+    linear-gradient(90deg, var(--bone), var(--bone-soft));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .about-good-snake-fx.about-good-snake-head::before {
   content: "";
   position: absolute;
-  right: 0;
+  right: 2px;
   top: 50%;
-  width: 9px;
-  height: 2px;
+  left: auto;
+  width: 12px;
+  height: 1.4px;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
   border-radius: 999px;
-  background: rgba(23, 19, 31, 0.52);
+  background: var(--bone-cut);
   transform: translateY(-50%);
+  opacity: 0.9;
 }
 
 .about-good-snake-fx.about-good-snake-head::after {
   content: "";
   position: absolute;
-  right: -7px;
-  top: 50%;
-  width: 9px;
-  height: 1px;
-  background: rgba(255, 244, 223, 0.86);
-  transform: translateY(-50%);
-  clip-path: polygon(
-    0 40%,
-    72% 40%,
-    100% 0,
-    100% 28%,
-    76% 50%,
-    100% 72%,
-    100% 100%,
-    72% 60%,
-    0 60%
+  right: -1px;
+  top: 52%;
+  left: auto;
+  width: 8px;
+  height: 6px;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0 999px 999px 0;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--bone) 0 1px,
+    transparent 1px 3px
   );
-  opacity: 0.9;
+  transform: translateY(-50%);
+  opacity: 0.82;
 }
 
 /* light theme */
 :root:not([data-theme="dark"]) .about-good-snake-fx {
-  background: linear-gradient(
-    90deg,
-    rgba(18, 18, 18, 0.94),
-    rgba(18, 18, 18, 0.78)
-  );
-  box-shadow:
-    0 0 4px rgba(18, 18, 18, 0.13),
-    0 0 9px rgba(18, 18, 18, 0.05);
-}
+  --bone: rgba(24, 22, 20, 0.92);
+  --bone-soft: rgba(38, 34, 29, 0.74);
+  --bone-edge: rgba(250, 248, 241, 0.28);
+  --bone-cut: rgba(250, 248, 241, 0.32);
+  --bone-eye: #faf8f1;
 
-:root:not([data-theme="dark"]) .about-good-snake-fx::after {
-  background: rgba(250, 248, 241, 0.22);
+  box-shadow: 0 1px 2px rgba(24, 22, 20, 0.14);
 }
-
-:root:not([data-theme="dark"]) .about-good-snake-fx.about-good-snake-head {
-  background:
-    radial-gradient(circle at 66% 32%, #faf8f1 0 1.6px, transparent 1.8px),
-    radial-gradient(circle at 66% 68%, #faf8f1 0 1.6px, transparent 1.8px),
-    linear-gradient(90deg, rgba(18, 18, 18, 0.96), rgba(18, 18, 18, 0.86));
-}
-
-:root:not([data-theme="dark"])
-  .about-good-snake-fx.about-good-snake-head::before {
-  background: rgba(250, 248, 241, 0.55);
-}
-
-:root:not([data-theme="dark"])
-  .about-good-snake-fx.about-good-snake-head::after {
-  background: rgba(18, 18, 18, 0.86);
-}
-
 /* =========================================================
    SERVICE / THIRD SECTION
    Dollar spread hover effect

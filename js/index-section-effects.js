@@ -1,4 +1,4 @@
-﻿(() => {
+(() => {
   const isPhone = window.matchMedia("(max-width: 768px)").matches;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -139,9 +139,7 @@
         const dy = next.y - part.y;
         const angle = Math.atan2(dy, dx) * (180 / Math.PI);
 
-        part.el.style.left = `${part.x}px`;
-        part.el.style.top = `${part.y}px`;
-        part.el.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+        part.el.style.transform = `translate3d(${part.x}px, ${part.y}px, 0) translate(-50%, -50%) rotate(${angle}deg)`;
       });
     }
 
